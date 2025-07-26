@@ -1,0 +1,1 @@
+web gunicorn paperfrenzy.wsgi:application --log-file -
