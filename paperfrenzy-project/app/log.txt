@@ -1,0 +1,1013 @@
+Subject NCC results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Nepali at paperfrenzy-project/app/cbse_papers/Nepali
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Nepali
+Processing file: Paper SET_4.pdf for subject: Nepali
+Subject Nepali results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Odia at paperfrenzy-project/app/cbse_papers/Odia
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Odia
+Processing file: Paper SET_4.pdf for subject: Odia
+Subject Odia results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Painting at paperfrenzy-project/app/cbse_papers/Painting
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Painting
+Processing file: Paper SET_4.pdf for subject: Painting
+Subject Painting results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Persian at paperfrenzy-project/app/cbse_papers/Persian
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Persian
+Processing file: Paper SET_4.pdf for subject: Persian
+Subject Persian results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Physical_Activity_Trainer at paperfrenzy-project/app/cbse_papers/Physical_Activity_Trainer
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Physical_Activity_Trainer
+Processing file: Paper 1.pdf for subject: Physical_Activity_Trainer
+Subject Physical_Activity_Trainer results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Punjabi at paperfrenzy-project/app/cbse_papers/Punjabi
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Punjabi
+Processing file: Paper SET_4.pdf for subject: Punjabi
+Subject Punjabi results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Retail at paperfrenzy-project/app/cbse_papers/Retail
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Retail
+Processing file: Paper SET_4.pdf for subject: Retail
+Subject Retail results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Russian at paperfrenzy-project/app/cbse_papers/Russian
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Russian
+Processing file: Paper SET_4.pdf for subject: Russian
+Subject Russian results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: SCIENCE at paperfrenzy-project/app/cbse_papers/SCIENCE
+************************************************************
+No PDF files found in paperfrenzy-project/app/cbse_papers/SCIENCE
+Subject SCIENCE results:
+Successful uploads: 0
+Failed uploads: 0
+
+************************************************************
+Processing subject: SOCIAL_SCIENCE at paperfrenzy-project/app/cbse_papers/SOCIAL_SCIENCE
+************************************************************
+No PDF files found in paperfrenzy-project/app/cbse_papers/SOCIAL_SCIENCE
+Subject SOCIAL_SCIENCE results:
+Successful uploads: 0
+Failed uploads: 0
+
+************************************************************
+Processing subject: Sanskrit at paperfrenzy-project/app/cbse_papers/Sanskrit
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Sanskrit
+Processing file: Paper SET_4.pdf for subject: Sanskrit
+Subject Sanskrit results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Security at paperfrenzy-project/app/cbse_papers/Security
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Security
+Processing file: Paper SET_4.pdf for subject: Security
+Subject Security results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Sherpa at paperfrenzy-project/app/cbse_papers/Sherpa
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Sherpa
+Processing file: Paper SET_4.pdf for subject: Sherpa
+Subject Sherpa results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Sindhi at paperfrenzy-project/app/cbse_papers/Sindhi
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Sindhi
+Processing file: Paper SET_4.pdf for subject: Sindhi
+Subject Sindhi results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Tamang at paperfrenzy-project/app/cbse_papers/Tamang
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Tamang
+Processing file: Paper SET_4.pdf for subject: Tamang
+Subject Tamang results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Tamil at paperfrenzy-project/app/cbse_papers/Tamil
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Tamil
+Processing file: Paper SET_4.pdf for subject: Tamil
+Subject Tamil results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Tangkhul at paperfrenzy-project/app/cbse_papers/Tangkhul
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Tangkhul
+Processing file: Paper SET_4.pdf for subject: Tangkhul
+Subject Tangkhul results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Telugu_Telangana at paperfrenzy-project/app/cbse_papers/Telugu_Telangana
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Telugu_Telangana
+Processing file: Paper SET_4.pdf for subject: Telugu_Telangana
+Subject Telugu_Telangana results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Thai at paperfrenzy-project/app/cbse_papers/Thai
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Thai
+Processing file: Paper SET_4.pdf for subject: Thai
+Subject Thai results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Tibetan at paperfrenzy-project/app/cbse_papers/Tibetan
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Tibetan
+Processing file: Paper SET_4.pdf for subject: Tibetan
+Subject Tibetan results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Urdu_Course_A at paperfrenzy-project/app/cbse_papers/Urdu_Course_A
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Urdu_Course_A
+Processing file: Paper SET_4.pdf for subject: Urdu_Course_A
+Subject Urdu_Course_A results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Urdu_Course_B at paperfrenzy-project/app/cbse_papers/Urdu_Course_B
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Urdu_Course_B
+Processing file: Paper SET_4.pdf for subject: Urdu_Course_B
+Subject Urdu_Course_B results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: spanish at paperfrenzy-project/app/cbse_papers/spanish
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/spanish
+Processing file: Paper SET_4.pdf for subject: spanish
+Subject spanish results:
+Successful uploads: 1
+Failed uploads: 0
+
+Overall Summary:
+Total successful uploads: 73
+Total failed uploads: 0
+ninaad@Ninaads-Mac-mini hosted-version % /usr/local/bin/python3.9 /Users/ninaad/Desktop/hosted-version/paperfrenzy-pro
+ject/app/cbseapu.py
+Directory not found: cbse_papers
+Checking alternative paths...
+Found directory at: paperfrenzy-project/app/cbse_papers
+Running in non-recursive mode
+
+============================================================
+Uploading papers from paperfrenzy-project/app/cbse_papers
+============================================================
+Found 80 subject directories
+
+************************************************************
+Processing subject: 11_TELUGU at paperfrenzy-project/app/cbse_papers/11_TELUGU
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/11_TELUGU
+Processing file: Paper SET_4.pdf for subject: 11_TELUGU
+Copying Paper SET_4.pdf to media/uploads/11_TELUGU_Paper SET_4.pdf
+Subject 11_TELUGU results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: 58_Rai at paperfrenzy-project/app/cbse_papers/58_Rai
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/58_Rai
+Processing file: Paper SET_4.pdf for subject: 58_Rai
+Copying Paper SET_4.pdf to media/uploads/58_Rai_Paper SET_4.pdf
+Subject 58_Rai results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Agriculture at paperfrenzy-project/app/cbse_papers/Agriculture
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Agriculture
+Processing file: Paper SET_4.pdf for subject: Agriculture
+Copying Paper SET_4.pdf to media/uploads/Agriculture_Paper SET_4.pdf
+Subject Agriculture results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Apparel at paperfrenzy-project/app/cbse_papers/Apparel
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Apparel
+Processing file: Paper SET_4.pdf for subject: Apparel
+Copying Paper SET_4.pdf to media/uploads/Apparel_Paper SET_4.pdf
+Subject Apparel results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Arabic at paperfrenzy-project/app/cbse_papers/Arabic
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Arabic
+Processing file: Paper SET_4.pdf for subject: Arabic
+Copying Paper SET_4.pdf to media/uploads/Arabic_Paper SET_4.pdf
+Subject Arabic results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Artificial_Intelligence at paperfrenzy-project/app/cbse_papers/Artificial_Intelligence
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Artificial_Intelligence
+Processing file: Paper S_4.pdf for subject: Artificial_Intelligence
+Copying Paper S_4.pdf to media/uploads/Artificial_Intelligence_Paper S_4.pdf
+Subject Artificial_Intelligence results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Assamese at paperfrenzy-project/app/cbse_papers/Assamese
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Assamese
+Processing file: Paper SET_4.pdf for subject: Assamese
+Copying Paper SET_4.pdf to media/uploads/Assamese_Paper SET_4.pdf
+Subject Assamese results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Automotive at paperfrenzy-project/app/cbse_papers/Automotive
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Automotive
+Processing file: Paper 1.pdf for subject: Automotive
+Copying Paper 1.pdf to media/uploads/Automotive_Paper 1.pdf
+Subject Automotive results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: BODO at paperfrenzy-project/app/cbse_papers/BODO
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/BODO
+Processing file: Paper SET_4.pdf for subject: BODO
+Copying Paper SET_4.pdf to media/uploads/BODO_Paper SET_4.pdf
+Subject BODO results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Bahasa_Melayu at paperfrenzy-project/app/cbse_papers/Bahasa_Melayu
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Bahasa_Melayu
+Processing file: Paper SET_4.pdf for subject: Bahasa_Melayu
+Copying Paper SET_4.pdf to media/uploads/Bahasa_Melayu_Paper SET_4.pdf
+Subject Bahasa_Melayu results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Banking_Insurance at paperfrenzy-project/app/cbse_papers/Banking_Insurance
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Banking_Insurance
+Processing file: Paper SET_4.pdf for subject: Banking_Insurance
+Copying Paper SET_4.pdf to media/uploads/Banking_Insurance_Paper SET_4.pdf
+Subject Banking_Insurance results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Beauty_Wellness at paperfrenzy-project/app/cbse_papers/Beauty_Wellness
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Beauty_Wellness
+Processing file: Paper SET_4.pdf for subject: Beauty_Wellness
+Copying Paper SET_4.pdf to media/uploads/Beauty_Wellness_Paper SET_4.pdf
+Subject Beauty_Wellness results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Bengali at paperfrenzy-project/app/cbse_papers/Bengali
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Bengali
+Processing file: Paper 1.pdf for subject: Bengali
+Copying Paper 1.pdf to media/uploads/Bengali_Paper 1.pdf
+Subject Bengali results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Bhutia at paperfrenzy-project/app/cbse_papers/Bhutia
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Bhutia
+Processing file: Paper SET_4.pdf for subject: Bhutia
+Copying Paper SET_4.pdf to media/uploads/Bhutia_Paper SET_4.pdf
+Subject Bhutia results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Carnatic_Music_Mel_Inst at paperfrenzy-project/app/cbse_papers/Carnatic_Music_Mel_Inst
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Carnatic_Music_Mel_Inst
+Processing file: Paper 1.pdf for subject: Carnatic_Music_Mel_Inst
+Copying Paper 1.pdf to media/uploads/Carnatic_Music_Mel_Inst_Paper 1.pdf
+Subject Carnatic_Music_Mel_Inst results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Carnatic_Music_Per_Inst at paperfrenzy-project/app/cbse_papers/Carnatic_Music_Per_Inst
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Carnatic_Music_Per_Inst
+Processing file: Paper 1.pdf for subject: Carnatic_Music_Per_Inst
+Copying Paper 1.pdf to media/uploads/Carnatic_Music_Per_Inst_Paper 1.pdf
+Subject Carnatic_Music_Per_Inst results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Carnatic_Music_Vocal at paperfrenzy-project/app/cbse_papers/Carnatic_Music_Vocal
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Carnatic_Music_Vocal
+Processing file: Paper SET_4.pdf for subject: Carnatic_Music_Vocal
+Copying Paper SET_4.pdf to media/uploads/Carnatic_Music_Vocal_Paper SET_4.pdf
+Subject Carnatic_Music_Vocal results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Computer_Applications at paperfrenzy-project/app/cbse_papers/Computer_Applications
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Computer_Applications
+Processing file: Paper S_4.pdf for subject: Computer_Applications
+Copying Paper S_4.pdf to media/uploads/Computer_Applications_Paper S_4.pdf
+Subject Computer_Applications results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Data_Science at paperfrenzy-project/app/cbse_papers/Data_Science
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Data_Science
+Processing file: Paper SET_4.pdf for subject: Data_Science
+Copying Paper SET_4.pdf to media/uploads/Data_Science_Paper SET_4.pdf
+Subject Data_Science results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Design_thinking_Innovation at paperfrenzy-project/app/cbse_papers/Design_thinking_Innovation
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Design_thinking_Innovation
+Processing file: Paper 4_I.pdf for subject: Design_thinking_Innovation
+Copying Paper 4_I.pdf to media/uploads/Design_thinking_Innovation_Paper 4_I.pdf
+Subject Design_thinking_Innovation results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: ENGLISH_L&L at paperfrenzy-project/app/cbse_papers/ENGLISH_L&L
+************************************************************
+No PDF files found in paperfrenzy-project/app/cbse_papers/ENGLISH_L&L
+Subject ENGLISH_L&L results:
+Successful uploads: 0
+Failed uploads: 0
+
+************************************************************
+Processing subject: Ele_Book_Keeping_Accountancy at paperfrenzy-project/app/cbse_papers/Ele_Book_Keeping_Accountancy
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Ele_Book_Keeping_Accountancy
+Processing file: Paper SET_4.pdf for subject: Ele_Book_Keeping_Accountancy
+Copying Paper SET_4.pdf to media/uploads/Ele_Book_Keeping_Accountancy_Paper SET_4.pdf
+Subject Ele_Book_Keeping_Accountancy results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Electronics_Hardware at paperfrenzy-project/app/cbse_papers/Electronics_Hardware
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Electronics_Hardware
+Processing file: Paper SET_4.pdf for subject: Electronics_Hardware
+Copying Paper SET_4.pdf to media/uploads/Electronics_Hardware_Paper SET_4.pdf
+Subject Electronics_Hardware results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Elements_Business at paperfrenzy-project/app/cbse_papers/Elements_Business
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Elements_Business
+Processing file: Paper SET_4.pdf for subject: Elements_Business
+Copying Paper SET_4.pdf to media/uploads/Elements_Business_Paper SET_4.pdf
+Subject Elements_Business results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: English_Communicative at paperfrenzy-project/app/cbse_papers/English_Communicative
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/English_Communicative
+Processing file: Paper SET_4.pdf for subject: English_Communicative
+Copying Paper SET_4.pdf to media/uploads/English_Communicative_Paper SET_4.pdf
+Subject English_Communicative results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Food_Production at paperfrenzy-project/app/cbse_papers/Food_Production
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Food_Production
+Processing file: Paper SET_4.pdf for subject: Food_Production
+Copying Paper SET_4.pdf to media/uploads/Food_Production_Paper SET_4.pdf
+Subject Food_Production results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: French at paperfrenzy-project/app/cbse_papers/French
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/French
+Processing file: Paper SET_4.pdf for subject: French
+Copying Paper SET_4.pdf to media/uploads/French_Paper SET_4.pdf
+Subject French results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Front_Office_Operations at paperfrenzy-project/app/cbse_papers/Front_Office_Operations
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Front_Office_Operations
+Processing file: Paper 1.pdf for subject: Front_Office_Operations
+Copying Paper 1.pdf to media/uploads/Front_Office_Operations_Paper 1.pdf
+Subject Front_Office_Operations results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: German at paperfrenzy-project/app/cbse_papers/German
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/German
+Processing file: Paper SET_4.pdf for subject: German
+Copying Paper SET_4.pdf to media/uploads/German_Paper SET_4.pdf
+Subject German results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Gujarati at paperfrenzy-project/app/cbse_papers/Gujarati
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Gujarati
+Processing file: Paper 1.pdf for subject: Gujarati
+Copying Paper 1.pdf to media/uploads/Gujarati_Paper 1.pdf
+Subject Gujarati results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Gurung at paperfrenzy-project/app/cbse_papers/Gurung
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Gurung
+Processing file: Paper SET_4.pdf for subject: Gurung
+Copying Paper SET_4.pdf to media/uploads/Gurung_Paper SET_4.pdf
+Subject Gurung results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: HINDI_A at paperfrenzy-project/app/cbse_papers/HINDI_A
+************************************************************
+No PDF files found in paperfrenzy-project/app/cbse_papers/HINDI_A
+Subject HINDI_A results:
+Successful uploads: 0
+Failed uploads: 0
+
+************************************************************
+Processing subject: HINDI_B at paperfrenzy-project/app/cbse_papers/HINDI_B
+************************************************************
+No PDF files found in paperfrenzy-project/app/cbse_papers/HINDI_B
+Subject HINDI_B results:
+Successful uploads: 0
+Failed uploads: 0
+
+************************************************************
+Processing subject: Health_Care at paperfrenzy-project/app/cbse_papers/Health_Care
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Health_Care
+Processing file: Paper SET_4.pdf for subject: Health_Care
+Copying Paper SET_4.pdf to media/uploads/Health_Care_Paper SET_4.pdf
+Subject Health_Care results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Hin_Music_Mel_Instru at paperfrenzy-project/app/cbse_papers/Hin_Music_Mel_Instru
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Hin_Music_Mel_Instru
+Processing file: Paper SET_4.pdf for subject: Hin_Music_Mel_Instru
+Copying Paper SET_4.pdf to media/uploads/Hin_Music_Mel_Instru_Paper SET_4.pdf
+Subject Hin_Music_Mel_Instru results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Hin_Music_Percussion_Instru at paperfrenzy-project/app/cbse_papers/Hin_Music_Percussion_Instru
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Hin_Music_Percussion_Instru
+Processing file: Paper SET_4.pdf for subject: Hin_Music_Percussion_Instru
+Copying Paper SET_4.pdf to media/uploads/Hin_Music_Percussion_Instru_Paper SET_4.pdf
+Subject Hin_Music_Percussion_Instru results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Hindustani_Music_Vocal at paperfrenzy-project/app/cbse_papers/Hindustani_Music_Vocal
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Hindustani_Music_Vocal
+Processing file: Paper SET_4.pdf for subject: Hindustani_Music_Vocal
+Copying Paper SET_4.pdf to media/uploads/Hindustani_Music_Vocal_Paper SET_4.pdf
+Subject Hindustani_Music_Vocal results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Home_Science at paperfrenzy-project/app/cbse_papers/Home_Science
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Home_Science
+Processing file: Paper SET_4.pdf for subject: Home_Science
+Copying Paper SET_4.pdf to media/uploads/Home_Science_Paper SET_4.pdf
+Subject Home_Science results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Information_Technology at paperfrenzy-project/app/cbse_papers/Information_Technology
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Information_Technology
+Processing file: Paper S_4.pdf for subject: Information_Technology
+Copying Paper S_4.pdf to media/uploads/Information_Technology_Paper S_4.pdf
+Subject Information_Technology results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Introduction_Financial_Market at paperfrenzy-project/app/cbse_papers/Introduction_Financial_Market
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Introduction_Financial_Market
+Processing file: Paper 1.pdf for subject: Introduction_Financial_Market
+Copying Paper 1.pdf to media/uploads/Introduction_Financial_Market_Paper 1.pdf
+Subject Introduction_Financial_Market results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Introduction_tourism at paperfrenzy-project/app/cbse_papers/Introduction_tourism
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Introduction_tourism
+Processing file: Paper 1.pdf for subject: Introduction_tourism
+Copying Paper 1.pdf to media/uploads/Introduction_tourism_Paper 1.pdf
+Subject Introduction_tourism results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Japanese at paperfrenzy-project/app/cbse_papers/Japanese
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Japanese
+Processing file: Paper SET_4.pdf for subject: Japanese
+Copying Paper SET_4.pdf to media/uploads/Japanese_Paper SET_4.pdf
+Subject Japanese results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Kannada at paperfrenzy-project/app/cbse_papers/Kannada
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Kannada
+Processing file: Paper SET_4.pdf for subject: Kannada
+Copying Paper SET_4.pdf to media/uploads/Kannada_Paper SET_4.pdf
+Subject Kannada results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Kashmiri at paperfrenzy-project/app/cbse_papers/Kashmiri
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Kashmiri
+Processing file: Paper SET_4.pdf for subject: Kashmiri
+Copying Paper SET_4.pdf to media/uploads/Kashmiri_Paper SET_4.pdf
+Subject Kashmiri results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Kokborok at paperfrenzy-project/app/cbse_papers/Kokborok
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Kokborok
+Processing file: Paper SET_4.pdf for subject: Kokborok
+Copying Paper SET_4.pdf to media/uploads/Kokborok_Paper SET_4.pdf
+Subject Kokborok results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Lepcha at paperfrenzy-project/app/cbse_papers/Lepcha
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Lepcha
+Processing file: Paper SET_4.pdf for subject: Lepcha
+Copying Paper SET_4.pdf to media/uploads/Lepcha_Paper SET_4.pdf
+Subject Lepcha results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Limboo at paperfrenzy-project/app/cbse_papers/Limboo
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Limboo
+Processing file: Paper SET_4.pdf for subject: Limboo
+Copying Paper SET_4.pdf to media/uploads/Limboo_Paper SET_4.pdf
+Subject Limboo results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: MATHEMATICS_BASIC at paperfrenzy-project/app/cbse_papers/MATHEMATICS_BASIC
+************************************************************
+No PDF files found in paperfrenzy-project/app/cbse_papers/MATHEMATICS_BASIC
+Subject MATHEMATICS_BASIC results:
+Successful uploads: 0
+Failed uploads: 0
+
+************************************************************
+Processing subject: MATHEMATICS_STANDARD at paperfrenzy-project/app/cbse_papers/MATHEMATICS_STANDARD
+************************************************************
+No PDF files found in paperfrenzy-project/app/cbse_papers/MATHEMATICS_STANDARD
+Subject MATHEMATICS_STANDARD results:
+Successful uploads: 0
+Failed uploads: 0
+
+************************************************************
+Processing subject: Malayalam at paperfrenzy-project/app/cbse_papers/Malayalam
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Malayalam
+Processing file: Paper SET_4.pdf for subject: Malayalam
+Copying Paper SET_4.pdf to media/uploads/Malayalam_Paper SET_4.pdf
+Subject Malayalam results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Manipuri at paperfrenzy-project/app/cbse_papers/Manipuri
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Manipuri
+Processing file: Paper SET_4.pdf for subject: Manipuri
+Copying Paper SET_4.pdf to media/uploads/Manipuri_Paper SET_4.pdf
+Subject Manipuri results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Marathi at paperfrenzy-project/app/cbse_papers/Marathi
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Marathi
+Processing file: Paper SET_4.pdf for subject: Marathi
+Copying Paper SET_4.pdf to media/uploads/Marathi_Paper SET_4.pdf
+Subject Marathi results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Marketing_Sales at paperfrenzy-project/app/cbse_papers/Marketing_Sales
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Marketing_Sales
+Processing file: Paper SET_4.pdf for subject: Marketing_Sales
+Copying Paper SET_4.pdf to media/uploads/Marketing_Sales_Paper SET_4.pdf
+Subject Marketing_Sales results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Mizzo at paperfrenzy-project/app/cbse_papers/Mizzo
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Mizzo
+Processing file: Paper SET_4.pdf for subject: Mizzo
+Copying Paper SET_4.pdf to media/uploads/Mizzo_Paper SET_4.pdf
+Subject Mizzo results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Multi_Skill_Foundation_Course at paperfrenzy-project/app/cbse_papers/Multi_Skill_Foundation_Course
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Multi_Skill_Foundation_Course
+Processing file: Paper SET_4.pdf for subject: Multi_Skill_Foundation_Course
+Copying Paper SET_4.pdf to media/uploads/Multi_Skill_Foundation_Course_Paper SET_4.pdf
+Subject Multi_Skill_Foundation_Course results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Multi_media at paperfrenzy-project/app/cbse_papers/Multi_media
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Multi_media
+Processing file: Paper 1.pdf for subject: Multi_media
+Copying Paper 1.pdf to media/uploads/Multi_media_Paper 1.pdf
+Subject Multi_media results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: NCC at paperfrenzy-project/app/cbse_papers/NCC
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/NCC
+Processing file: Paper LD_7.pdf for subject: NCC
+Copying Paper LD_7.pdf to media/uploads/NCC_Paper LD_7.pdf
+Subject NCC results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Nepali at paperfrenzy-project/app/cbse_papers/Nepali
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Nepali
+Processing file: Paper SET_4.pdf for subject: Nepali
+Copying Paper SET_4.pdf to media/uploads/Nepali_Paper SET_4.pdf
+Subject Nepali results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Odia at paperfrenzy-project/app/cbse_papers/Odia
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Odia
+Processing file: Paper SET_4.pdf for subject: Odia
+Copying Paper SET_4.pdf to media/uploads/Odia_Paper SET_4.pdf
+Subject Odia results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Painting at paperfrenzy-project/app/cbse_papers/Painting
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Painting
+Processing file: Paper SET_4.pdf for subject: Painting
+Copying Paper SET_4.pdf to media/uploads/Painting_Paper SET_4.pdf
+Subject Painting results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Persian at paperfrenzy-project/app/cbse_papers/Persian
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Persian
+Processing file: Paper SET_4.pdf for subject: Persian
+Copying Paper SET_4.pdf to media/uploads/Persian_Paper SET_4.pdf
+Subject Persian results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Physical_Activity_Trainer at paperfrenzy-project/app/cbse_papers/Physical_Activity_Trainer
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Physical_Activity_Trainer
+Processing file: Paper 1.pdf for subject: Physical_Activity_Trainer
+Copying Paper 1.pdf to media/uploads/Physical_Activity_Trainer_Paper 1.pdf
+Subject Physical_Activity_Trainer results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Punjabi at paperfrenzy-project/app/cbse_papers/Punjabi
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Punjabi
+Processing file: Paper SET_4.pdf for subject: Punjabi
+Copying Paper SET_4.pdf to media/uploads/Punjabi_Paper SET_4.pdf
+Subject Punjabi results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Retail at paperfrenzy-project/app/cbse_papers/Retail
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Retail
+Processing file: Paper SET_4.pdf for subject: Retail
+Copying Paper SET_4.pdf to media/uploads/Retail_Paper SET_4.pdf
+Subject Retail results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Russian at paperfrenzy-project/app/cbse_papers/Russian
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Russian
+Processing file: Paper SET_4.pdf for subject: Russian
+Copying Paper SET_4.pdf to media/uploads/Russian_Paper SET_4.pdf
+Subject Russian results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: SCIENCE at paperfrenzy-project/app/cbse_papers/SCIENCE
+************************************************************
+No PDF files found in paperfrenzy-project/app/cbse_papers/SCIENCE
+Subject SCIENCE results:
+Successful uploads: 0
+Failed uploads: 0
+
+************************************************************
+Processing subject: SOCIAL_SCIENCE at paperfrenzy-project/app/cbse_papers/SOCIAL_SCIENCE
+************************************************************
+No PDF files found in paperfrenzy-project/app/cbse_papers/SOCIAL_SCIENCE
+Subject SOCIAL_SCIENCE results:
+Successful uploads: 0
+Failed uploads: 0
+
+************************************************************
+Processing subject: Sanskrit at paperfrenzy-project/app/cbse_papers/Sanskrit
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Sanskrit
+Processing file: Paper SET_4.pdf for subject: Sanskrit
+Copying Paper SET_4.pdf to media/uploads/Sanskrit_Paper SET_4.pdf
+Subject Sanskrit results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Security at paperfrenzy-project/app/cbse_papers/Security
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Security
+Processing file: Paper SET_4.pdf for subject: Security
+Copying Paper SET_4.pdf to media/uploads/Security_Paper SET_4.pdf
+Subject Security results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Sherpa at paperfrenzy-project/app/cbse_papers/Sherpa
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Sherpa
+Processing file: Paper SET_4.pdf for subject: Sherpa
+Copying Paper SET_4.pdf to media/uploads/Sherpa_Paper SET_4.pdf
+Subject Sherpa results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Sindhi at paperfrenzy-project/app/cbse_papers/Sindhi
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Sindhi
+Processing file: Paper SET_4.pdf for subject: Sindhi
+Copying Paper SET_4.pdf to media/uploads/Sindhi_Paper SET_4.pdf
+Subject Sindhi results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Tamang at paperfrenzy-project/app/cbse_papers/Tamang
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Tamang
+Processing file: Paper SET_4.pdf for subject: Tamang
+Copying Paper SET_4.pdf to media/uploads/Tamang_Paper SET_4.pdf
+Subject Tamang results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Tamil at paperfrenzy-project/app/cbse_papers/Tamil
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Tamil
+Processing file: Paper SET_4.pdf for subject: Tamil
+Copying Paper SET_4.pdf to media/uploads/Tamil_Paper SET_4.pdf
+Subject Tamil results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Tangkhul at paperfrenzy-project/app/cbse_papers/Tangkhul
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Tangkhul
+Processing file: Paper SET_4.pdf for subject: Tangkhul
+Copying Paper SET_4.pdf to media/uploads/Tangkhul_Paper SET_4.pdf
+Subject Tangkhul results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Telugu_Telangana at paperfrenzy-project/app/cbse_papers/Telugu_Telangana
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Telugu_Telangana
+Processing file: Paper SET_4.pdf for subject: Telugu_Telangana
+Copying Paper SET_4.pdf to media/uploads/Telugu_Telangana_Paper SET_4.pdf
+Subject Telugu_Telangana results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Thai at paperfrenzy-project/app/cbse_papers/Thai
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Thai
+Processing file: Paper SET_4.pdf for subject: Thai
+Copying Paper SET_4.pdf to media/uploads/Thai_Paper SET_4.pdf
+Subject Thai results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Tibetan at paperfrenzy-project/app/cbse_papers/Tibetan
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Tibetan
+Processing file: Paper SET_4.pdf for subject: Tibetan
+Copying Paper SET_4.pdf to media/uploads/Tibetan_Paper SET_4.pdf
+Subject Tibetan results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Urdu_Course_A at paperfrenzy-project/app/cbse_papers/Urdu_Course_A
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Urdu_Course_A
+Processing file: Paper SET_4.pdf for subject: Urdu_Course_A
+Copying Paper SET_4.pdf to media/uploads/Urdu_Course_A_Paper SET_4.pdf
+Subject Urdu_Course_A results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: Urdu_Course_B at paperfrenzy-project/app/cbse_papers/Urdu_Course_B
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/Urdu_Course_B
+Processing file: Paper SET_4.pdf for subject: Urdu_Course_B
+Copying Paper SET_4.pdf to media/uploads/Urdu_Course_B_Paper SET_4.pdf
+Subject Urdu_Course_B results:
+Successful uploads: 1
+Failed uploads: 0
+
+************************************************************
+Processing subject: spanish at paperfrenzy-project/app/cbse_papers/spanish
+************************************************************
+Found 1 PDF files in paperfrenzy-project/app/cbse_papers/spanish
+Processing file: Paper SET_4.pdf for subject: spanish
+Copying Paper SET_4.pdf to media/uploads/spanish_Paper SET_4.pdf
+Subject spanish results:
+Successful uploads: 1
+Failed uploads: 0
+
+Overall Summary:
+Total successful uploads: 73
+Total failed uploads: 0
