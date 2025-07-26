@@ -1,6 +1,7 @@
 # Offical_PF_Code
 Paperfrenzy codebase raw full website regularly updated to reflect changes
 
+(CHANGES NOT ALLOWED TO BE MADE BY ANY EXTERNAL INDIVUAL OR ORGANISATION WITHOUT THE PRIOR CONSENT OF PAPERFRENZY FOUNDER NINAAD OR CO FOUNDER AARNAV VINAKOTTA)
 
 CBSE_DOWNLOADER.py is a bot for downloading cbse papers still under dev
 
