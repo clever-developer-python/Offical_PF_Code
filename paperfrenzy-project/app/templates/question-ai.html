@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>AI Query</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" />
+
+    <!-- Custom Styles -->
+    <style>
+    
+    html, body {
+  height: 100%; /* Ensure full viewport height */
+  margin: 0; /* Remove any default margin */
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Make sure the body takes up the full height */
+  padding-top: 100px; /* Optional: space from the top if needed */
+}
+
+.query-container {
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px; /* This controls the maximum width of your card */
+  text-align: center;
+  background-color: white; /* Set a background color to the card */
+}
+
+.dropdown {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.navbar {
+  padding: 50px 0;
+}
+
+.navbar-brand {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.navbar-nav .nav-link {
+  font-size: 20px;
+  font-weight: 500;
+  color: #000;
+  margin-left: 48px;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+@media (max-width: 991px) {
+  .navbar-nav .nav-link {
+    margin-left: 0;
+    padding: 10px 0;
+  }
+}
+
+
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">PaperFrenzy</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'feedback' %}">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="query-container">
+      <div id="questionDisplay" style="margin-bottom: 20px; display: none;">
+      </div>
+
+      <h4 id="titleText">Question generator v1.0 (Supports IGCSE Only)</h4>
+      <br>
+      <p class="initial-message small" id="initialText">As of now we support only some topics and don't support image-based questions. However, we will improve this in future updates.</p>
+      <p class="small" id="questionText" style="display: none;"></p>
+      
+      <div class="dropdown">
+        <label for="subject">Choose Subject</label>
+        <select id="subject">
+          <option value="">Select a Subject</option>
+          <option value="Math">Mathematics (0580)</option>
+          <option value="Combined">Combined Sciences (0654)</option>
+          <option value="Computer">Computer Science (0478)</option>
+          <option value="Physics">Physics (0625)</option>
+          <option value="Chemistry">Chemistry (0620)</option>
+          <option value="Biology">Biology (0610)</option>
+        </select>
+      </div>
+      
+      <div class="dropdown">
+        <label for="topic">Choose Topic</label>
+        <select id="topic">
+          <option value="">Select a Topic</option>
+        </select>
+      </div>
+    
+      <div class="button-group">
+        <button type="button" class="btn btn-primary" id="generateBtn" disabled>Generate</button>
+        <button type="button" class="btn btn-secondary" id="answerBtn" style="display: none;">Answer</button>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    
+    <script>
+      let questionCounter = 0;
+      let currentQuestion = '';
+      let currentAnswer = '';
+      let isShowingAnswer = false;
+
+      const subjects = {
+        Combined: ['B1 Characteristics of living organisms', 'B2 Cells', 'B3 Biological molecules', 'B4 Enzymes', 'B5 Plant nutrition','B6 Animal nutrition','B7 Transport','B8 Gas exchange and respiration','B9 Coordination and response','B10 Reproduction','B11 Inheritance','B12 Organisms and their environment','B13 Human influences on ecosystems','C1 The particulate nature of matter','C2 Experimental techniques','C3 Atoms, elements and compounds','C4 Stoichiometry','C5 Electricity and chemistry','C6 Energy changes in chemical reactions','C7 Chemical reactions','C8 Acids, bases and salts','C9 The Periodic Table','C10 Metals','C11 Air and water','C12 Sulfur','C13 Carbonates','C14 Organic chemistry','P1 Motion','P2 Work, energy and power','P3 Thermal physics','P4 Properties of waves, including light and sound','P5 Electricity and magnetism','P6 Electric circuits','P7 Electromagnetic effects','P8 Atomic physics'],
+        Math: ['E1 Number', 'E2 Algebra and graphs', 'E3 Coordinate Geometry','E4 Trignometry','E5 Probability'],
+        Computer: ['Data representation', 'Data transmission', 'Hardware', 'Software', 'The internet and its uses','Automated and emerging technologies'],
+        Physics: ['Motion, forces and energy', 'Thermal physics', 'Waves', 'Electricity and magnetism', 'Nuclear physics', 'Space physics'],
+        Chemistry: ['Atoms, elements and compounds', 'Stoichiometry', 'Electrochemistry', 'Chemical reactions', 'Acids, bases and salts', 'The Periodic Table', 'Metals', 'Chemistry of the environment', 'Organic chemistry'],
+        Biology: ['Characteristics and classification of living organisms','Organisation of the organism','Movement into and out of cells','Biological molecules','Enzymes','Plant nutrition','Human nutrition','Transport in plants','Transport in animals','Diseases and immunity','Gas exchange in humans','Respiration','Excretion in humans','Coordination and response','Drugs','Reproduction','Inheritance','Variation and selection','Organisms and their environment','Human influences on ecosystems','Biotechnology and genetic modification']
+      };
+
+      function checkSelections() {
+        const subjectSelected = $('#subject').val() !== '';
+        const topicSelected = $('#topic').val() !== '';
+        
+        if (subjectSelected && topicSelected) {
+          $('#generateBtn').prop('disabled', false);
+        } else {
+          $('#generateBtn').prop('disabled', true);
+        }
+      }
+
+      $('#subject').change(function() {
+        let subject = $(this).val();
+        let topics = subjects[subject] || [];
+        
+        $('#topic').empty().append('<option value="">Select a Topic</option>');
+        
+        topics.forEach(function(topic) {
+          $('#topic').append(`<option value="${topic.toLowerCase()}">${topic}</option>`);
+        });
+
+        checkSelections();
+      });
+
+      $('#topic').change(function() {
+        checkSelections();
+      });
+
+      checkSelections();
+
+      $('#generateBtn').on('click', function() {
+    const selectedSubject = $('#subject').val();
+    const selectedTopic = $('#topic').val();
+
+    $(this).prop('disabled', true);
+    $(this).text('Generating...');
+
+    questionCounter++;
+    $('#titleText').text(`Question ${questionCounter}`);
+
+    $.ajax({
+        url: '/generate/',
+        type: 'POST',
+        data: {
+            'subject': selectedSubject,
+            'topic': selectedTopic,
+            'csrfmiddlewaretoken': '{{ csrf_token }}'
+        },
+        success: function(response) {
+            // Hide the initial message
+            $('#initialText').hide();
+            // Show and update the question text
+            $('#questionText').show();
+            
+            // Parse the response to separate question and answer
+            let fullText = response.message;
+            currentQuestion = fullText.split('**Answer:**')[0].replace('**Question:**', '').trim();
+            currentAnswer = fullText.split('**Answer:**')[1].trim();
+            
+            $('#questionText').text(currentQuestion);
+            $('#answerBtn').show();
+            isShowingAnswer = false;
+        },
+        error: function(xhr, errmsg, err) {
+            console.log('Generation failed');
+            console.log(xhr.status + ": " + xhr.responseText);
+        },
+        complete: function() {
+            $('#generateBtn').prop('disabled', false);
+            $('#generateBtn').text('Generate');
+        }
+    });
+});
+
+
+
+      $('#answerBtn').on('click', function() {
+        if (!isShowingAnswer) {
+          $('#titleText').text(`Answer ${questionCounter}`);
+          $('#questionText').text(currentAnswer);
+          isShowingAnswer = true;
+        } else {
+          $('#titleText').text(`Question ${questionCounter}`);
+          $('#questionText').text(currentQuestion);
+          isShowingAnswer = false;
+        }
+      });
+    </script>
+
+  </body>
+</html>

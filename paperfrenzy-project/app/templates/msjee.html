@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PaperFrenzy - Marking Scheme</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+<meta name="monetag" content="9a1b5bd0718c47a3080137aed2a2f4a1">
+<style>
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --br-9xs: 4px;
+    --spacing-xs: 8px;
+    --spacing-s: 16px;
+    --spacing-m: 24px;
+    --spacing-xl: 40px;
+    --title-size: 40px;
+    --subheading-size: 24px;
+    --body-text-size: 18px;
+    --button-text-size: 18px;
+    --body-text: 'Inter', sans-serif;
+    --button-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-white);
+    width: 100%;
+    height: 164px;
+    padding: 0 80px;
+    box-sizing: border-box;
+    color: #000000;
+}
+
+.header-navigation .navbar {
+    display: flex;
+    width: 100%;
+}
+
+.header-navigation .navbar-brand {
+    margin-right: auto; /* Pushes the brand to the left */
+}
+
+.header-navigation .navbar-collapse {
+    margin-left: auto; /* Aligns the collapsible part to the right */
+}
+
+.header-navigation .navbar-nav {
+    display: flex;
+    margin-left: auto; /* Pushes the nav items to the right */
+}
+
+.header-navigation .navbar-nav .nav-item {
+    margin-left: var(--spacing-xl); /* Adds spacing between nav items */
+}
+
+/* Ensure dropdowns align correctly */
+.header-navigation .dropdown-menu {
+    right: 0;
+    left: auto; /* Override default left alignment */
+}
+
+.header-navigation .dropdown-toggle::after {
+    display: none;
+}
+
+.items {
+    display: flex;
+    gap: var(--spacing-xl);
+}
+
+.items .dive-in {
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+.viewer-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    height: calc(100vh - 174px);
+}
+
+.viewer {
+    width: 50%;
+    transition: transform 0.3s ease;
+    box-sizing: border-box;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+}
+
+.viewer.shift-left {
+    transform: translateX(-2.5%);
+}
+
+#mark-scheme-viewer {
+    display: none;
+}
+
+.pdf-container {
+    width: 100%;
+    position: relative;
+}
+
+.pdf-page-wrapper {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.editable-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.editable-content {
+    position: absolute;
+    background: transparent;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: blue;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: border-box;
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline on focus */
+    padding: 0;
+    margin: 0;
+}
+
+.editable-content:focus {
+    border: none;
+    outline: none; /* Remove outline on focus */
+}
+
+.scribble-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto; /* Ensure this canvas receives pointer events */
+}
+
+.paperfrenzy1 {
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 150%;
+}
+
+
+
+/* Dropdown styles */
+.dropdown {
+    position: relative; /* Ensure positioning context for dropdown menu */
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none; /* Hide by default */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: auto; /* Override default left alignment */
+    background-color: var(--color-white);
+    box-shadow: var(--button-shadow);
+    padding: var(--spacing-s) 0;
+    z-index: 1050; /* Ensure it is above other content */
+    min-width: 150px;
+    width: max-content;
+}
+
+/* Ensure the dropdown menu appears when the dropdown is active */
+.dropdown.show .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu .dropdown-item {
+    padding: var(--spacing-s);
+    color: black;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: whitesmoke;
+}
+
+/* Ensure dropdown menu is above other content on mobile */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: fixed; /* Ensure it's positioned relative to the dropdown toggle */
+        top: 164px; /* Position it directly below the dropdown toggle */
+        right: 0;
+        left: auto;
+        width: 100%;
+        max-width: 250px; /* Adjust as needed */
+        height: auto;
+        max-height: calc(100vh - 164px); /* Adjust based on header height */
+        overflow-y: auto;
+        z-index: 1060;
+    }
+}
+
+.autocorrect-box {
+    background-color: var(--color-white);
+    border-radius: var(--br-9xs);
+    padding: var(--spacing-m);
+    max-width: 600px;
+    margin: var(--spacing-xl) auto;
+    display: none;
+}
+
+.autocorrect-input {
+    width: calc(100% - 110px); /* Adjust based on button width */
+    padding: var(--spacing-xs);
+    font-size: var(--body-text-size);
+    border: 1px solid #ccc;
+    border-radius: var(--br-9xs);
+    box-sizing: border-box;
+}
+
+.search-button {
+    width: 100px;
+    padding: var(--spacing-xs);
+    font-size: var(--body-text-size);
+    background-color: #007bff;
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--br-9xs);
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+.autocorrect-message {
+    margin-top: var(--spacing-m);
+    font-size: var(--body-text-size);
+}
+
+@media screen and (max-width: 768px) {
+    .viewer-container {
+        flex-direction: column;
+    }
+    .viewer {
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+    }
+    .viewer.shift-left {
+        transform: none;
+    }
+    #mark-scheme-viewer {
+        display: none;
+    }
+    .navbar {
+        z-index: 1050;
+    }
+    .navbar-collapse {
+        z-index: 1050; /* Same as navbar */
+    }
+    .dropdown-menu {
+        z-index: 1060; /* Higher than the navbar */
+    }
+}
+
+@media (max-width: 767.98px) {
+    .header-navigation {
+        padding: 0 20px;
+    }
+    
+    .navbar {
+        height: auto;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        margin-left: 0; /* Remove margin for mobile view */
+    }
+
+    .navbar-nav .nav-item {
+        margin-left: 0;
+        margin-top: 0.5rem; /* Space between items */
+    }
+}
+
+.loading-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    color: #555;
+    z-index: 10;
+    display: none; /* Hidden by default */
+}
+
+
+
+</style>
+
+</head>
+<body>
+    <div class="header-navigation">
+        <nav class="navbar navbar-expand-md navbar-light bg-white">
+            <a class="navbar-brand paperfrenzy1" href="/">PaperFrenzy</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dive-in">
+                        <a id="download-paper" class="nav-link" href="#">Download</a>
+                    </li>
+                    <li class="nav-item dive-in">
+                        <a id="autocorrect" class="nav-link" href="#">Ask DoubtAi</a>
+                    </li>
+                    <li class="nav-item dive-in dropdown" style="display: none;">
+                        <a class="nav-link dropdown-toggle" href="#" id="openMarkSchemeDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Open Mark scheme
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="openMarkSchemeDropdown">
+                            <a id="open-side-by-side" class="dropdown-item" href="#">Open side by side</a>
+                            <a id="open-new-tab" class="dropdown-item" href="#">Open in new tab</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dive-in dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="modetoggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Typing Mode
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="modetoggle">
+                            <a id="typing-mode" class="dropdown-item" data-mode="typing" href="#">Typing Mode</a>
+                            <a id="scribble-mode" class="dropdown-item" data-mode="scribble" href="#">Scribble Mode</a>
+                            <a id="eraser-mode" class="dropdown-item" data-mode="erase" href="#">Eraser Mode</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    
+    <div class="autocorrect-box" id="autocorrect-box">
+       
+            <input type="text" class="autocorrect-input" placeholder="Enter your query here..." />
+            <button id="search-button" class="search-button">Ask</button>
+            <div class="autocorrect-message" id="autocorrect-message">BETA version of DoubtAI</div>
+   
+    </div>
+    
+    
+<div class="viewer-container">
+    <div class="loading-message" id="loading-message">Loading...</div>
+    <div class="viewer" id="paper-viewer">
+        <div class="pdf-container" id="paper-pdf-container"></div>
+    </div>
+    <div class="viewer" id="mark-scheme-viewer">
+        <div class="loading-message" id="loading-message">Loading...</div>
+        <div class="pdf-container" id="mark-scheme-pdf-container"></div>
+    </div>
+</div>
+
+
+<script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.worker.min.js';
+    
+    let isScribbleMode = false;
+    let isEraserMode = false;
+    let scribblealert = 0;
+    let currentMode = 'typing';
+
+    $(document).ready(function() {
+    $('[data-toggle="dropdown"]').dropdown();
+    }); 
+    
+    $('#autocorrect').on('click', function(e) {
+        e.preventDefault();
+        $('#autocorrect-box').toggle();
+        const myElement = document.getElementById('autocorrect-box');
+    
+        if (myElement) {
+            const style = getComputedStyle(myElement);
+            if (style.display !== 'none' && style.visibility !== 'hidden') {
+                document.getElementById('autocorrect').innerText = 'Close DoubtAI'
+            } else {
+                document.getElementById('autocorrect').innerText = 'Ask DoubtAI'
+            }
+        } else {
+            console.log('Error');
+        }
+    });
+
+    document.querySelectorAll('.dropdown-toggle').forEach(function (toggle) {
+    toggle.addEventListener('click', function () {
+        var dropdown = this.closest('.dropdown');
+        dropdown.classList.toggle('show');
+    });
+});
+
+document.addEventListener('click', function (event) {
+    if (!event.target.closest('.dropdown')) {
+        document.querySelectorAll('.dropdown').forEach(function (dropdown) {
+            dropdown.classList.remove('show');
+        });
+    }
+});
+
+    
+    $(document).ready(function() {
+        $('#search-button').on('click', function() {
+            const query = $('.autocorrect-input').val();
+            document.getElementById("autocorrect-message").innerText = "Answering... Reply may take sometime depending on your internet";
+    
+            $.ajax({
+                url: '/search/',
+                type: 'POST',
+                data: {
+                    'query': query,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function(response) {
+                    $('.autocorrect-message').text(response.message);
+                },
+                error: function(xhr, errmsg, err) {
+                    console.log(xhr.status + ": " + xhr.responseText);
+                }
+            });
+        });
+    });
+    
+    function toggleMode(mode) {
+        currentMode = mode;
+        switch (mode) {
+            case 'typing':
+                isScribbleMode = false;
+                isEraserMode = false;
+                break;
+            case 'scribble':
+                if (scribblealert == 0) {
+                    alert("You cannot scroll with scribble mode on iPad. Switch to typing mode to scroll on iPad.");
+                    scribblealert += 1;
+                }
+                isScribbleMode = true;
+                isEraserMode = false;
+                break;
+            case 'erase':
+                isScribbleMode = false;
+                isEraserMode = true;
+                break;
+        }
+        updateDropdownText();
+        updateCanvasModes();
+    }
+    
+    function updateDropdownText() {
+        const dropdownButton = document.getElementById('modetoggle');
+        switch (currentMode) {
+            case 'typing':
+                dropdownButton.textContent = 'Typing Mode';
+                break;
+            case 'scribble':
+                dropdownButton.textContent = 'Scribble Mode';
+                break;
+            case 'erase':
+                dropdownButton.textContent = 'Eraser Mode';
+                break;
+        }
+    }
+    
+    function updateCanvasModes() {
+        const canvases = document.querySelectorAll('.scribble-canvas');
+        canvases.forEach(canvas => {
+            const ctx = canvas.getContext('2d');
+            ctx.globalCompositeOperation = isEraserMode ? 'destination-out' : 'source-over';
+            canvas.style.pointerEvents = isScribbleMode || isEraserMode ? 'auto' : 'none';
+        });
+    }
+    
+    function initScribble(canvas) {
+        const ctx = canvas.getContext('2d');
+        const eraserSize = 80;
+    
+        ctx.lineWidth = 2;
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+    
+        let drawing = false;
+    
+        function startDrawing(e) {
+            drawing = true;
+            ctx.beginPath();
+            ctx.moveTo(e.offsetX, e.offsetY);
+        }
+    
+        function draw(e) {
+            if (drawing && (isScribbleMode || isEraserMode)) {
+                ctx.lineWidth = isEraserMode ? eraserSize : 2;
+                ctx.lineTo(e.offsetX, e.offsetY);
+                ctx.stroke();
+            }
+        }
+    
+        function stopDrawing() {
+            drawing = false;
+        }
+    
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+    
+        canvas.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            const rect = canvas.getBoundingClientRect();
+            const touch = e.touches[0];
+            const offsetX = touch.clientX - rect.left;
+            const offsetY = touch.clientY - rect.top;
+            startDrawing({ offsetX, offsetY });
+        });
+    
+        canvas.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            const rect = canvas.getBoundingClientRect();
+            const touch = e.touches[0];
+            const offsetX = touch.clientX - rect.left;
+            const offsetY = touch.clientY - rect.top;
+            draw({ offsetX, offsetY });
+        });
+    
+        canvas.addEventListener('touchend', stopDrawing);
+        canvas.addEventListener('touchcancel', stopDrawing);
+    }
+    
+function renderPDF(url, containerId) {
+    const container = document.getElementById(containerId);
+    const loadingMessage = document.getElementById('loading-message');
+    
+    container.innerHTML = '';
+    loadingMessage.style.display = 'block'; // Show loading message
+
+    pdfjsLib.getDocument(url).promise.then(function(pdf) {
+        loadingMessage.style.display = 'none'; // Hide loading message
+        for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+            pdf.getPage(pageNum).then(function(page) {
+                const viewport = page.getViewport({scale: 1});
+                const containerWidth = container.clientWidth;
+                const scale = containerWidth / viewport.width;
+                const scaledViewport = page.getViewport({scale: scale});
+
+                const wrapper = document.createElement('div');
+                wrapper.className = 'pdf-page-wrapper';
+                wrapper.style.width = `${scaledViewport.width}px`;
+                wrapper.style.height = `${scaledViewport.height}px`;
+
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                canvas.height = scaledViewport.height;
+                canvas.width = scaledViewport.width;
+
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: scaledViewport
+                };
+                page.render(renderContext);
+
+                const editableLayer = document.createElement('div');
+                editableLayer.className = 'editable-layer';
+
+                const scribbleCanvas = document.createElement('canvas');
+                scribbleCanvas.className = 'scribble-canvas';
+                scribbleCanvas.width = canvas.width;
+                scribbleCanvas.height = canvas.height;
+
+                initScribble(scribbleCanvas);
+
+                wrapper.appendChild(canvas);
+                wrapper.appendChild(editableLayer);
+                wrapper.appendChild(scribbleCanvas);
+                container.appendChild(wrapper);
+
+                updateCanvasModes();
+
+                canvas.addEventListener('click', function(event) {
+                    const rect = canvas.getBoundingClientRect();
+                    const scaleX = canvas.width / rect.width;
+                    const scaleY = canvas.height / rect.height;
+
+                    const x = (event.clientX - rect.left) * scaleX;
+                    const y = (event.clientY - rect.top) * scaleY;
+
+                    const editableContent = document.createElement('div');
+                    editableContent.className = 'editable-content';
+                    editableContent.contentEditable = true;
+                    editableContent.style.left = `${x}px`;
+                    editableContent.style.top = `${y}px`;
+                    editableContent.style.width = '150px';
+                    editableContent.style.height = 'auto';
+                    editableContent.textContent = '';
+
+                    editableLayer.appendChild(editableContent);
+
+                    editableContent.focus();
+
+                    interact(editableContent)
+                        .draggable({
+                            onmove(event) {
+                                const x = (parseFloat(editableContent.getAttribute('data-x')) || 0) + event.dx;
+                                const y = (parseFloat(editableContent.getAttribute('data-y')) || 0) + event.dy;
+
+                                editableContent.style.transform = `translate(${x}px, ${y}px)`;
+                                editableContent.setAttribute('data-x', x);
+                                editableContent.setAttribute('data-y', y);
+                            }
+                        })
+                        .resizable({
+                            edges: { left: true, right: true, bottom: true, top: true },
+                            onmove(event) {
+                                const { x, y } = event.target.dataset;
+                                event.target.style.width = `${event.rect.width}px`;
+                                event.target.style.height = `${event.rect.height}px`;
+                                event.target.style.transform = `translate(${x}px, ${y}px)`;
+                            }
+                        });
+                });
+            });
+        }
+    });
+}
+
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        renderPDF("{{ ms.0.file.url }}", 'paper-pdf-container');
+    
+        const openSideBySideButton = document.getElementById('open-side-by-side');
+        const openNewTabButton = document.getElementById('open-new-tab');
+    
+        openSideBySideButton.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                alert("Your screen size is too small to open the marking scheme side by side. Please use the 'Open in new tab' option instead.");
+            } else {
+                const paperViewer = document.getElementById('paper-viewer');
+                const markSchemeViewer = document.getElementById('mark-scheme-viewer');
+    
+                if (markSchemeViewer.style.display === 'none' || markSchemeViewer.style.display === '') {
+                    markSchemeViewer.style.display = 'block';
+                    paperViewer.classList.add('shift-left');
+                    renderPDF("{{ papers.0.file.url }}", 'mark-scheme-pdf-container');
+                } else {
+                    markSchemeViewer.style.display = 'none';
+                    paperViewer.classList.remove('shift-left');
+                }
+            }
+        });
+    
+    
+        document.getElementById('download-paper').addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const downloadFile = async (url, fileName) => {
+        try {
+            // Fetch the file from the URL
+            const response = await fetch(url, { mode: 'cors' });
+            if (!response.ok) throw new Error('Network response was not ok');
+            
+            // Convert the response to a Blob
+            const blob = await response.blob();
+            const blobUrl = URL.createObjectURL(blob);
+
+            // Create a temporary anchor element to trigger the download
+            const link = document.createElement('a');
+            link.href = blobUrl;
+            link.download = fileName;
+            document.body.appendChild(link);
+            link.click();
+
+            // Clean up
+            URL.revokeObjectURL(blobUrl);
+            document.body.removeChild(link);
+        } catch (error) {
+            console.error('Download error:', error);
+            // Fallback in case of error
+            window.location.href = url;
+        }
+    };
+
+    const paperUrl = "{{ papers.0.file.url }}";
+    const markSchemeUrl = "{{ ms.0.file.url }}";
+
+    // Download the paper and mark scheme files
+    downloadFile(paperUrl, '{{ papers.0.subject }}_Question_Paper.pdf');
+    
+    setTimeout(() => {
+        downloadFile(markSchemeUrl, '{{ ms.0.subject }}_MarkScheme.pdf');
+    }, 260);
+});
+
+    
+        const dropdownItems = document.querySelectorAll('.dropdown-menu .dropdown-item');
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const mode = this.getAttribute('data-mode');
+                toggleMode(mode);
+            });
+        });
+    });
+    
+    window.addEventListener('resize', function() {
+        renderPDF("{{ ms.0.file.url }}", 'paper-pdf-container');
+        if (document.getElementById('mark-scheme-viewer').style.display !== 'none') {
+            renderPDF("{{ papers.0.file.url }}", 'mark-scheme-pdf-container');
+        }
+    });
+    </script>
+    <script type="text/javascript"> var infolinks_pid = 3425180; var infolinks_wsid = 0; </script> <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCELWYKB3L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-ZCELWYKB3L');
+    </script>
+</body>
+</html>

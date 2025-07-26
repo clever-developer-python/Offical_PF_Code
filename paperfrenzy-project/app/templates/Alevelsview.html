@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "qxotscsx2u");
+    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PaperFrenzy - Solve paper</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<meta name="google-adsense-account" content="ca-pub-7186413258992386">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<meta name="monetag" content="9a1b5bd0718c47a3080137aed2a2f4a1">
+<!-- Hotjar Tracking Code for https://www.paperfrenzy.in -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:5253975,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<style>
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --br-9xs: 4px;
+    --spacing-xs: 8px;
+    --spacing-s: 16px;
+    --spacing-m: 24px;
+    --spacing-xl: 40px;
+    --title-size: 40px;
+    --subheading-size: 24px;
+    --body-text-size: 18px;
+    --button-text-size: 18px;
+    --body-text: 'Inter', sans-serif;
+    --button-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-white);
+    width: 100%;
+    height: 164px;
+    padding: 0 80px;
+    box-sizing: border-box;
+    color: #000000;
+    position: relative;
+}
+
+.header-navigation .navbar {
+    display: flex;
+    width: 100%;
+}
+
+.navbar-brand,
+.navbar-toggler {
+  position: relative;
+  z-index: 1001;
+}
+
+.header-navigation .navbar-brand {
+    margin-right: auto; /* Pushes the brand to the left */
+}
+
+.header-navigation .navbar-collapse {
+    margin-left: auto; /* Aligns the collapsible part to the right */
+}
+
+.header-navigation .navbar-nav {
+    display: flex;
+    margin-left: auto; /* Pushes the nav items to the right */
+}
+
+.header-navigation .navbar-nav .nav-item {
+    margin-left: var(--spacing-xl); /* Adds spacing between nav items */
+}
+
+/* Ensure dropdowns align correctly */
+.header-navigation .dropdown-menu {
+    right: 0;
+    left: auto; /* Override default left alignment */
+}
+
+.header-navigation .dropdown-toggle::after {
+    display: none;
+}
+
+.items {
+    display: flex;
+    gap: var(--spacing-xl);
+}
+
+.items .dive-in {
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+.viewer-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    height: calc(100vh - 174px);
+}
+
+@media screen and (max-width: 768px) {
+    .editable-content, .scribble-canvas {
+        display: none !important;
+    }
+    
+    #modetoggle {
+        display: none !important;
+    }
+}
+
+
+.viewer {
+    width: 50%;
+    transition: transform 0.3s ease;
+    box-sizing: border-box;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+}
+
+.viewer.shift-left {
+    transform: translateX(-2.5%);
+}
+
+#mark-scheme-viewer {
+    display: none;
+}
+
+.pdf-container {
+    width: 100%;
+    position: relative;
+}
+
+.pdf-page-wrapper {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.editable-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.editable-content {
+    position: absolute;
+    background: transparent;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: blue;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: border-box;
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline on focus */
+    padding: 0;
+    margin: 0;
+}
+
+.editable-content:focus {
+    border: none;
+    outline: none; /* Remove outline on focus */
+}
+
+.scribble-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto; /* Ensure this canvas receives pointer events */
+}
+
+.paperfrenzy1 {
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 150%;
+}
+
+
+
+/* Dropdown styles */
+.dropdown {
+    position: relative; /* Ensure positioning context for dropdown menu */
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none; /* Hide by default */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: auto; /* Override default left alignment */
+    background-color: var(--color-white);
+    box-shadow: var(--button-shadow);
+    padding: var(--spacing-s) 0;
+    z-index: 1050; /* Ensure it is above other content */
+    min-width: 150px;
+    width: max-content;
+}
+
+/* Ensure the dropdown menu appears when the dropdown is active */
+.dropdown.show .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu .dropdown-item {
+    padding: var(--spacing-s);
+    color: black;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: whitesmoke;
+}
+
+/* Ensure dropdown menu is above other content on mobile */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static; /* Ensure it's positioned relative to the dropdown toggle */
+        top: 164px; /* Position it directly below the dropdown toggle */
+        right: 0;
+        left: auto;
+        width: 100%;
+        max-width: 250px; /* Adjust as needed */
+        height: auto;
+        max-height: calc(100vh - 164px); /* Adjust based on header height */
+        overflow-y: auto;
+        z-index: 1060;
+        float: none;
+        box-shadow: none;
+    }
+}
+
+.autocorrect-box {
+    background-color: var(--color-white);
+    border-radius: var(--br-9xs);
+    padding: var(--spacing-m);
+    max-width: 600px;
+    margin: var(--spacing-xl) auto;
+    display: none;
+}
+
+.autocorrect-input {
+    width: calc(100% - 110px); /* Adjust based on button width */
+    padding: var(--spacing-xs);
+    font-size: var(--body-text-size);
+    border: 1px solid #ccc;
+    border-radius: var(--br-9xs);
+    box-sizing: border-box;
+}
+
+.search-button {
+    width: 100px;
+    padding: var(--spacing-xs);
+    font-size: var(--body-text-size);
+    background-color: #007bff;
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--br-9xs);
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+.autocorrect-message {
+    margin-top: var(--spacing-m);
+    font-size: var(--body-text-size);
+}
+
+@media screen and (max-width: 768px) {
+    .viewer-container {
+        flex-direction: column;
+    }
+    .viewer {
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+    }
+    .viewer.shift-left {
+        transform: none;
+    }
+    #mark-scheme-viewer {
+        display: none;
+    }
+    .navbar {
+        z-index: 1050;
+    }
+    .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    z-index: 1000;
+  }
+    .dropdown-menu {
+        z-index: 1060; /* Higher than the navbar */
+    }
+}
+
+@media (max-width: 767.98px) {
+    .header-navigation {
+    padding: 0 10px;
+    }
+    
+    .navbar {
+        height: auto;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        margin-left: 0; /* Remove margin for mobile view */
+    }
+
+    .navbar-nav .nav-item {
+        margin-left: 0;
+        margin-top: 0.5rem; /* Space between items */
+    }
+}
+
+.loading-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    color: #555;
+    z-index: 10;
+    display: none; /* Hidden by default */
+}
+
+
+
+</style>
+</head>
+<body>
+    <div class="header-navigation">
+        <nav class="navbar navbar-expand-md navbar-light bg-white">
+            <a class="navbar-brand paperfrenzy1" href="/">PaperFrenzy</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dive-in">
+                        <a id="download-paper" class="nav-link" href="#">Download</a>
+                    </li>
+                    <li class="nav-item dive-in dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="openMarkSchemeDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Open Mark scheme
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="openMarkSchemeDropdown">
+                            <a id="open-side-by-side" class="dropdown-item" href="#">Open side by side</a>
+                            <a id="open-new-tab" class="dropdown-item" href="#">Open in new tab</a>
+                        </div>
+                    </li>
+
+                    {% if has_insert %}
+                    <li class="nav-item dive-in dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="openInsertDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Open Insert
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="openInsertDropdown">
+                            <a id="open-insert-side-by-side" class="dropdown-item" href="#">Open side by side</a>
+                            <a id="open-insert-new-tab" class="dropdown-item" href="#">Open in new tab</a>
+                        </div>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item dive-in dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="modetoggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Typing Mode
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="modetoggle">
+                            <a id="typing-mode" class="dropdown-item" data-mode="typing" href="#">Typing Mode</a>
+                            <a id="scribble-mode" class="dropdown-item" data-mode="scribble" href="#">Scribble Mode</a>
+                            <a id="eraser-mode" class="dropdown-item" data-mode="erase" href="#">Eraser Mode</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    
+    <div class="autocorrect-box" id="autocorrect-box">
+       
+            <input type="text" class="autocorrect-input" placeholder="Enter your query here..." />
+            <button id="search-button" class="search-button">Ask</button>
+            <div class="autocorrect-message" id="autocorrect-message">BETA version of DoubtAI</div>
+   
+    </div>
+    
+    
+    <div class="viewer-container">
+        <div class="loading-message" id="loading-message">Loading...</div>
+        <div class="viewer" id="paper-viewer">
+            <div class="pdf-container" id="paper-pdf-container"></div>
+        </div>
+        <div class="viewer" id="mark-scheme-viewer">
+            <div class="loading-message" id="loading-message">Loading...</div>
+            <div class="pdf-container" id="mark-scheme-pdf-container"></div>
+        </div>
+    </div>
+
+
+<script>
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.worker.min.js';
+
+console.log("{{ ms.0.file.url }}")
+console.log("{{ papers.0.file.url }}")
+
+let isScribbleMode = false;
+let isEraserMode = false;
+let scribblealert = 0;
+let currentMode = 'typing';
+let pdfInitialized = false;
+let markSchemeInitialized = false;
+let lastWindowWidth = window.innerWidth;
+let renderedPaperPages = new Set();
+let renderedMarkSchemePages = new Set();
+let renderedInsertPages = new Set();
+let currentSideDocument = null;
+let currentPDF = null;
+let currentPDFDocument = null;
+let pendingRenderQueue = [];
+
+$(document).ready(function() {
+    $('[data-toggle="dropdown"]').dropdown();
+});
+
+document.addEventListener('touchend', function(event) {
+    if (event.changedTouches.length === 1) {
+        const now = Date.now();
+        const lastTouch = $(event.target).data('lastTouch') || now + 1;
+        const delta = now - lastTouch;
+        if (delta < 500 && delta > 0) {
+            event.preventDefault();
+            return false;
+        }
+        $(event.target).data('lastTouch', now);
+    }
+}, false);
+
+$('#autocorrect').on('click', function(e) {
+    e.preventDefault();
+    $('#autocorrect-box').toggle();
+    const myElement = document.getElementById('autocorrect-box');
+
+    if (myElement) {
+        const style = getComputedStyle(myElement);
+        if (style.display !== 'none' && style.visibility !== 'hidden') {
+            document.getElementById('autocorrect').innerText = 'Close DoubtAI';
+        } else {
+            document.getElementById('autocorrect').innerText = 'Ask DoubtAI';
+        }
+    }
+});
+
+document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+    toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var dropdown = this.closest('.dropdown');
+        document.querySelectorAll('.dropdown').forEach(function(d) {
+            if (d !== dropdown) d.classList.remove('show');
+        });
+        dropdown.classList.toggle('show');
+    });
+});
+
+document.addEventListener('click', function(event) {
+    if (!event.target.closest('.dropdown')) {
+        document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+            dropdown.classList.remove('show');
+        });
+    }
+});
+
+function showSideDocument(url, type) {
+    if (window.innerWidth <= 768) {
+        alert("Screen too small for side-by-side view. Please use 'Open in new tab' option.");
+        return;
+    }
+
+    const paperViewer = document.getElementById('paper-viewer');
+    const markSchemeViewer = document.getElementById('mark-scheme-viewer');
+
+    if (currentSideDocument === type) {
+        markSchemeViewer.style.display = 'none';
+        paperViewer.classList.remove('shift-left');
+        clearSideViewer();
+        updateDocumentDropdowns(false, type);
+    } else {
+        markSchemeViewer.style.display = 'block';
+        paperViewer.classList.add('shift-left');
+        markSchemeInitialized = false;
+        renderPDF(url, 'mark-scheme-pdf-container');
+        currentSideDocument = type;
+        updateDocumentDropdowns(true, type);
+    }
+}
+
+function updateDocumentDropdowns(isOpen, type) {
+    if (type === 'markscheme') {
+        const dropdownToggle = document.getElementById('openMarkSchemeDropdown');
+        const sideBySideOption = document.getElementById('open-side-by-side');
+        
+        if (dropdownToggle && sideBySideOption) {
+            dropdownToggle.textContent = isOpen ? 'Close Mark scheme' : 'Open Mark scheme';
+            sideBySideOption.textContent = isOpen ? 'Close side by side' : 'Open side by side';
+        }
+    } else if (type === 'insert') {
+        const dropdownToggle = document.getElementById('openInsertDropdown');
+        const sideBySideOption = document.getElementById('open-insert-side-by-side');
+        
+        if (dropdownToggle && sideBySideOption) {
+            dropdownToggle.textContent = isOpen ? 'Close Insert' : 'Open Insert';
+            sideBySideOption.textContent = isOpen ? 'Close side by side' : 'Open side by side';
+        }
+    }
+}
+
+function clearSideViewer() {
+    if (currentPDFDocument) {
+        currentPDFDocument.destroy();
+        currentPDFDocument = null;
+    }
+    pendingRenderQueue = [];
+    const container = document.getElementById('mark-scheme-pdf-container');
+    if (container) {
+        container.innerHTML = '';
+    }
+    currentPDF = null;
+    markSchemeInitialized = false;
+    currentSideDocument = null;
+}
+
+function renderPDF(url, containerId, forceRerender = false) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    const loadingMessage = document.getElementById('loading-message');
+    
+    let relevantRenderedPages;
+    if (containerId === 'paper-pdf-container') {
+        relevantRenderedPages = renderedPaperPages;
+    } else if (containerId === 'mark-scheme-pdf-container') {
+        relevantRenderedPages = url.includes('ms') ? renderedMarkSchemePages : renderedInsertPages;
+    }
+    
+    if (containerId === 'mark-scheme-pdf-container' && currentPDF !== url) {
+        clearSideViewer();
+        currentPDF = url;
+        relevantRenderedPages.clear();
+    }
+    
+    if ((containerId === 'paper-pdf-container' && pdfInitialized && !forceRerender) ||
+        (containerId === 'mark-scheme-pdf-container' && markSchemeInitialized && 
+         currentPDF === url && !forceRerender)) {
+        return;
+    }
+
+    container.innerHTML = '';
+    if (loadingMessage) loadingMessage.style.display = 'block';
+
+    pdfjsLib.getDocument(url).promise.then(function(pdf) {
+        currentPDFDocument = pdf;
+        if (loadingMessage) loadingMessage.style.display = 'none';
+        
+        if (containerId === 'paper-pdf-container') {
+            pdfInitialized = true;
+        } else if (containerId === 'mark-scheme-pdf-container') {
+            markSchemeInitialized = true;
+            currentSideDocument = url.includes('ms') ? 'markscheme' : 'insert';
+        }
+
+        const renderPage = async function(pageNum) {
+            if (relevantRenderedPages.has(pageNum)) return;
+            
+            try {
+                const page = await pdf.getPage(pageNum);
+                const viewport = page.getViewport({scale: 1});
+                const containerWidth = container.clientWidth;
+                const scale = containerWidth / viewport.width;
+                const scaledViewport = page.getViewport({scale: scale});
+
+                const wrapper = document.createElement('div');
+                wrapper.className = 'pdf-page-wrapper';
+                wrapper.setAttribute('data-page-number', pageNum);
+                wrapper.style.width = `${scaledViewport.width}px`;
+                wrapper.style.height = `${scaledViewport.height}px`;
+
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                canvas.height = scaledViewport.height;
+                canvas.width = scaledViewport.width;
+
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: scaledViewport
+                };
+
+                await page.render(renderContext).promise;
+
+                const editableLayer = document.createElement('div');
+                editableLayer.className = 'editable-layer';
+
+                const scribbleCanvas = document.createElement('canvas');
+                scribbleCanvas.className = 'scribble-canvas';
+                scribbleCanvas.width = canvas.width;
+                scribbleCanvas.height = canvas.height;
+
+                initScribble(scribbleCanvas);
+
+                wrapper.appendChild(canvas);
+                wrapper.appendChild(editableLayer);
+                wrapper.appendChild(scribbleCanvas);
+                
+                let inserted = false;
+                const existingPages = container.querySelectorAll('.pdf-page-wrapper');
+                for (let existing of existingPages) {
+                    const existingNum = parseInt(existing.getAttribute('data-page-number'));
+                    if (existingNum > pageNum) {
+                        container.insertBefore(wrapper, existing);
+                        inserted = true;
+                        break;
+                    }
+                }
+
+                if (!inserted) {
+                    container.appendChild(wrapper);
+                }
+
+                relevantRenderedPages.add(pageNum);
+                updateCanvasModes();
+
+                if (!isScribbleMode && !isEraserMode) {
+                    setupEditableContent(canvas, editableLayer);
+                }
+            } catch (error) {
+                console.error(`Error rendering page ${pageNum}:`, error);
+            }
+        };
+
+        const renderPages = async () => {
+            for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                await renderPage(pageNum);
+            }
+        };
+
+        renderPages();
+    }).catch(function(error) {
+        console.error('Error loading PDF:', error);
+        if (loadingMessage) loadingMessage.style.display = 'none';
+    });
+}
+
+function setupEditableContent(canvas, editableLayer) {
+    canvas.addEventListener('click', function(event) {
+        if (isScribbleMode || isEraserMode) return;
+
+        const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+
+        const x = (event.clientX - rect.left) * scaleX;
+        const y = (event.clientY - rect.top) * scaleY;
+
+        const editableContent = document.createElement('div');
+        editableContent.className = 'editable-content';
+        editableContent.contentEditable = true;
+        editableContent.style.left = `${x}px`;
+        editableContent.style.top = `${y}px`;
+        editableContent.style.width = '150px';
+        editableContent.style.height = 'auto';
+        editableContent.textContent = '';
+
+        editableLayer.appendChild(editableContent);
+        editableContent.focus();
+    });
+}
+
+function initScribble(canvas) {
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const eraserSize = 80;
+    let drawing = false;
+    let lastX = 0;
+    let lastY = 0;
+
+    ctx.lineWidth = 2;
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+
+    function getCoordinates(e, canvas) {
+        const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+
+        if (e.type.includes('touch')) {
+            const touch = e.touches[0] || e.changedTouches[0];
+            return {
+                x: (touch.clientX - rect.left) * scaleX,
+                y: (touch.clientY - rect.top) * scaleY
+            };
+        } else {
+            return {
+                x: (e.clientX - rect.left) * scaleX,
+                y: (e.clientY - rect.top) * scaleY
+            };
+        }
+    }
+
+    function startDrawing(e) {
+        e.preventDefault();
+        drawing = true;
+        const coords = getCoordinates(e, canvas);
+        lastX = coords.x;
+        lastY = coords.y;
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+    }
+
+    function draw(e) {
+        if (!drawing || (!isScribbleMode && !isEraserMode)) return;
+        e.preventDefault();
+
+        const coords = getCoordinates(e, canvas);
+        ctx.lineWidth = isEraserMode ? eraserSize : 2;
+        ctx.lineTo(coords.x, coords.y);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(coords.x, coords.y);
+    }
+
+    function stopDrawing(e) {
+        if (!drawing) return;
+        e.preventDefault();
+        drawing = false;
+        ctx.closePath();
+    }
+
+    canvas.addEventListener('mousedown', startDrawing, { passive: false });
+    canvas.addEventListener('mousemove', draw, { passive: false });
+    canvas.addEventListener('mouseup', stopDrawing, { passive: false });
+    canvas.addEventListener('mouseout', stopDrawing, { passive: false });
+
+    canvas.addEventListener('touchstart', startDrawing, { passive: false });
+    canvas.addEventListener('touchmove', draw, { passive: false });
+    canvas.addEventListener('touchend', stopDrawing, { passive: false });
+    canvas.addEventListener('touchcancel', stopDrawing, { passive: false });
+}
+
+function toggleMode(mode) {
+    currentMode = mode;
+    switch (mode) {
+        case 'typing':
+            isScribbleMode = false;
+            isEraserMode = false;
+            break;
+        case 'scribble':
+            if (scribblealert === 0) {
+                alert("You cannot scroll with scribble mode on iPad. Switch to typing mode to scroll on iPad.");
+                scribblealert += 1;
+            }
+            isScribbleMode = true;
+            isEraserMode = false;
+            break;
+        case 'erase':
+            isScribbleMode = false;
+            isEraserMode = true;
+            break;
+    }
+    updateDropdownText();
+    updateCanvasModes();
+}
+
+function updateDropdownText() {
+    const dropdownButton = document.getElementById('modetoggle');
+    if (!dropdownButton) return;
+    
+    dropdownButton.textContent = currentMode.charAt(0).toUpperCase() + currentMode.slice(1) + ' Mode';
+}
+
+function updateCanvasModes() {
+    const canvases = document.querySelectorAll('.scribble-canvas');
+    canvases.forEach(canvas => {
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+            ctx.globalCompositeOperation = isEraserMode ? 'destination-out' : 'source-over';
+            canvas.style.pointerEvents = isScribbleMode || isEraserMode ? 'auto' : 'none';
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    renderPDF("{{ papers.0.file.url }}", 'paper-pdf-container');
+
+    const openSideBySideButton = document.getElementById('open-side-by-side');
+    const openNewTabButton = document.getElementById('open-new-tab');
+    const openInsertSideBySideButton = document.getElementById('open-insert-side-by-side');
+    const openInsertNewTabButton = document.getElementById('open-insert-new-tab');
+
+    const markSchemeUrl = "{{ ms.0.file.url }}";
+    const openMarkSchemeDropdown = document.getElementById('openMarkSchemeDropdown');
+
+    if (!markSchemeUrl || markSchemeUrl === "" || markSchemeUrl === "None") {
+        // Disable the mark scheme dropdown and buttons
+        if (openMarkSchemeDropdown) {
+            openMarkSchemeDropdown.classList.add('disabled');
+            openMarkSchemeDropdown.textContent = 'No Mark Scheme Available';
+            openMarkSchemeDropdown.style.color = '#6c757d';
+            openMarkSchemeDropdown.style.cursor = 'not-allowed';
+            openMarkSchemeDropdown.setAttribute('data-toggle', '');
+            openMarkSchemeDropdown.removeAttribute('role');
+
+            // Hide dropdown menu
+        const markSchemeDropdownMenu = document.querySelector('[aria-labelledby="openMarkSchemeDropdown"]');
+        if (markSchemeDropdownMenu) {
+            markSchemeDropdownMenu.style.display = 'none';
+        }
+    } else {
+        // Mark scheme exists, set up event listeners
+        if (openSideBySideButton) {
+            openSideBySideButton.addEventListener('click', function() {
+                showSideDocument(markSchemeUrl, 'markscheme');
+            });
+        }
+
+        }}
+
+    if (openSideBySideButton) {
+        openSideBySideButton.addEventListener('click', function() {
+            showSideDocument("{{ ms.0.file.url }}", 'markscheme');
+        });
+    }
+
+    if (openNewTabButton) {
+        openNewTabButton.addEventListener('click', function() {
+            openNewTabButton.addEventListener('click', function() {
+            window.open('/ALevelsms/', '_blank');
+
+            $.ajax({
+                url: '/ALevelsms/',
+                type: 'POST',
+                data: {
+                    'subjectname': '{{ papers.0.subject }}',
+                    'subjectset': '{{ papers.0.sets }}',
+                    'subjectyear': '{{ papers.0.year }}',
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function(response) {
+                    console.log('Ajax request successful');
+                },
+                error: function(xhr, errmsg, err) {
+                    console.log('Ajax request failed');
+                    console.log(xhr.status + ": " + xhr.responseText);
+                }
+            });
+        });
+        });
+    }
+
+    if (openInsertSideBySideButton) {
+        openInsertSideBySideButton.addEventListener('click', function() {
+            showSideDocument("{{ insert.0.file.url }}", 'insert');
+        });
+    }
+
+    if (openInsertNewTabButton) {
+            openInsertNewTabButton.addEventListener('click', function() {
+            window.open('/ALevelsinsert/', '_blank');
+
+            $.ajax({
+                url: '/ALevelsinsert/',
+                type: 'POST',
+                data: {
+                    'subjectname': '{{ papers.0.subject }}',
+                    'subjectset': '{{ papers.0.sets }}',
+                    'subjectyear': '{{ papers.0.year }}',
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function(response) {
+                    console.log('Ajax request successful');
+                },
+                error: function(xhr, errmsg, err) {
+                    console.log('Ajax request failed');
+                    console.log(xhr.status + ": " + xhr.responseText);
+                }
+            });
+        });
+        }
+        
+    
+
+    document.getElementById('download-paper')?.addEventListener('click', async function(e) {
+        e.preventDefault();
+        
+        const originalText = this.textContent;
+        this.textContent = 'Downloading...';
+        this.disabled = true;
+
+        async function downloadPDF(url, filename) {
+            // Check if URL is valid (not empty, None, or undefined)
+            if (!url || url === "None" || url === "") {
+                console.log(`Skipping download for ${filename} - URL not available`);
+                return false;
+            }
+            
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Download failed');
+                const blob = await response.blob();
+                const blobUrl = window.URL.createObjectURL(blob);
+                
+                const iframe = document.createElement('iframe');
+                iframe.style.display = 'none';
+                document.body.appendChild(iframe);
+                iframe.contentWindow.document.open();
+                iframe.contentWindow.document.write(
+                    `<a id="download" download="${filename}" href="${blobUrl}"></a>`
+                );
+                iframe.contentWindow.document.close();
+                
+                const downloadLink = iframe.contentWindow.document.getElementById('download');
+                downloadLink.click();
+                
+                setTimeout(() => {
+                    document.body.removeChild(iframe);
+                    window.URL.revokeObjectURL(blobUrl);
+                }, 1000);
+                
+                return true;
+            } catch (error) {
+                console.error(`Download error for ${filename}:`, error);
+                return false;
+            }
+        }
+
+        try {
+            // Download the question paper
+            const paperUrl = "{{ papers.0.file.url }}";
+            const paperSuccess = await downloadPDF(
+                paperUrl, 
+                '{{ papers.0.subject }}_Question_Paper.pdf'
+            );
+
+            if (paperSuccess) {
+                // Download mark scheme if available
+                const msUrl = "{{ ms.0.file.url }}";
+                setTimeout(async () => {
+                    await downloadPDF(
+                        msUrl, 
+                        '{{ ms.0.subject }}_MarkScheme.pdf'
+                    );
+                    
+                    // Download insert if available
+                    const insertUrl = "{{ insert.0.file.url }}";
+                    await downloadPDF(
+                        insertUrl,
+                        "{{ papers.0.subject }}_Insert.pdf"
+                    );
+                }, 300);
+            }
+        } catch (error) {
+            alert('Download failed. Please try again.');
+        } finally {
+            this.textContent = originalText;
+            this.disabled = false;
+        }
+    });
+
+
+    const dropdownItems = document.querySelectorAll('.dropdown-menu .dropdown-item[data-mode]');
+    dropdownItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const mode = this.getAttribute('data-mode');
+            if (mode) toggleMode(mode);
+        });
+    });
+
+    document.addEventListener('touchend', function(event) {
+        const now = Date.now();
+        const lastTap = $(event.target).data('lastTap') || now + 1;
+        const delta = now - lastTap;
+        if (delta < 500 && delta > 0) {
+            event.preventDefault();
+        }
+        $(event.target).data('lastTap', now);
+    });
+
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        let touchStartY = 0;
+        navbar.addEventListener('touchstart', function(e) {
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        navbar.addEventListener('touchmove', function(e) {
+            const touchY = e.touches[0].clientY;
+            const diff = touchStartY - touchY;
+
+            if (Math.abs(diff) > 50) {
+                navbar.style.transform = diff > 0 ? 'translateY(-100%)' : 'translateY(0)';
+            }
+        }, { passive: true });
+    }
+});
+    </script>
+</body>
+</html>

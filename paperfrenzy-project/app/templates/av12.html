@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "qxotscsx2u");
+    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PaperFrenzy - Solve paper</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<meta name="google-adsense-account" content="ca-pub-7186413258992386">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<!-- Hotjar Tracking Code for https://www.paperfrenzy.in -->
+<script>
+   
+</script>
+<style>
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --br-9xs: 4px;
+    --spacing-xs: 8px;
+    --spacing-s: 16px;
+    --spacing-m: 24px;
+    --spacing-xl: 40px;
+    --title-size: 40px;
+    --subheading-size: 24px;
+    --body-text-size: 18px;
+    --button-text-size: 18px;
+    --body-text: 'Inter', sans-serif;
+    --button-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-white);
+    width: 100%;
+    height: 164px;
+    padding: 0 80px;
+    box-sizing: border-box;
+    color: #000000;
+    position: relative;
+}
+
+.header-navigation .navbar {
+    display: flex;
+    width: 100%;
+}
+
+.navbar-brand,
+.navbar-toggler {
+  position: relative;
+  z-index: 1001;
+}
+
+.header-navigation .navbar-brand {
+    margin-right: auto; /* Pushes the brand to the left */
+}
+
+.header-navigation .navbar-collapse {
+    margin-left: auto; /* Aligns the collapsible part to the right */
+}
+
+.header-navigation .navbar-nav {
+    display: flex;
+    margin-left: auto; /* Pushes the nav items to the right */
+}
+
+.header-navigation .navbar-nav .nav-item {
+    margin-left: var(--spacing-xl); /* Adds spacing between nav items */
+}
+
+/* Ensure dropdowns align correctly */
+.header-navigation .dropdown-menu {
+    right: 0;
+    left: auto; /* Override default left alignment */
+}
+
+.header-navigation .dropdown-toggle::after {
+    display: none;
+}
+
+.items {
+    display: flex;
+    gap: var(--spacing-xl);
+}
+
+.items .dive-in {
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+.viewer-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    height: calc(100vh - 174px);
+}
+
+@media screen and (max-width: 768px) {
+    .editable-content, .scribble-canvas {
+        display: none !important;
+    }
+    
+    #modetoggle {
+        display: none !important;
+    }
+}
+
+
+.viewer {
+    width: 50%;
+    transition: transform 0.3s ease;
+    box-sizing: border-box;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+}
+
+.viewer.shift-left {
+    transform: translateX(-2.5%);
+}
+
+#mark-scheme-viewer {
+    display: none;
+}
+
+.pdf-container {
+    width: 100%;
+    position: relative;
+}
+
+.pdf-page-wrapper {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.editable-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.editable-content {
+    position: absolute;
+    background: transparent;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: blue;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: border-box;
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline on focus */
+    padding: 0;
+    margin: 0;
+}
+
+.editable-content:focus {
+    border: none;
+    outline: none; /* Remove outline on focus */
+}
+
+.scribble-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto; /* Ensure this canvas receives pointer events */
+}
+
+.paperfrenzy1 {
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 150%;
+}
+
+
+
+/* Dropdown styles */
+.dropdown {
+    position: relative; /* Ensure positioning context for dropdown menu */
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none; /* Hide by default */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: auto; /* Override default left alignment */
+    background-color: var(--color-white);
+    box-shadow: var(--button-shadow);
+    padding: var(--spacing-s) 0;
+    z-index: 1050; /* Ensure it is above other content */
+    min-width: 150px;
+    width: max-content;
+}
+
+/* Ensure the dropdown menu appears when the dropdown is active */
+.dropdown.show .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu .dropdown-item {
+    padding: var(--spacing-s);
+    color: black;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: whitesmoke;
+}
+
+/* Ensure dropdown menu is above other content on mobile */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static; /* Ensure it's positioned relative to the dropdown toggle */
+        top: 164px; /* Position it directly below the dropdown toggle */
+        right: 0;
+        left: auto;
+        width: 100%;
+        max-width: 250px; /* Adjust as needed */
+        height: auto;
+        max-height: calc(100vh - 164px); /* Adjust based on header height */
+        overflow-y: auto;
+        z-index: 1060;
+        float: none;
+        box-shadow: none;
+    }
+}
+
+.autocorrect-box {
+    background-color: var(--color-white);
+    border-radius: var(--br-9xs);
+    padding: var(--spacing-m);
+    max-width: 600px;
+    margin: var(--spacing-xl) auto;
+    display: none;
+}
+
+.autocorrect-input {
+    width: calc(100% - 110px); /* Adjust based on button width */
+    padding: var(--spacing-xs);
+    font-size: var(--body-text-size);
+    border: 1px solid #ccc;
+    border-radius: var(--br-9xs);
+    box-sizing: border-box;
+}
+
+.search-button {
+    width: 100px;
+    padding: var(--spacing-xs);
+    font-size: var(--body-text-size);
+    background-color: #007bff;
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--br-9xs);
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+.autocorrect-message {
+    margin-top: var(--spacing-m);
+    font-size: var(--body-text-size);
+}
+
+@media screen and (max-width: 768px) {
+    .viewer-container {
+        flex-direction: column;
+    }
+    .viewer {
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+    }
+    .viewer.shift-left {
+        transform: none;
+    }
+    #mark-scheme-viewer {
+        display: none;
+    }
+    .navbar {
+        z-index: 1050;
+    }
+    .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    z-index: 1000;
+  }
+    .dropdown-menu {
+        z-index: 1060; /* Higher than the navbar */
+    }
+}
+
+@media (max-width: 767.98px) {
+    .header-navigation {
+    padding: 0 10px;
+    }
+    
+    .navbar {
+        height: auto;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        margin-left: 0; /* Remove margin for mobile view */
+    }
+
+    .navbar-nav .nav-item {
+        margin-left: 0;
+        margin-top: 0.5rem; /* Space between items */
+    }
+}
+
+.loading-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    color: #555;
+    z-index: 10;
+    display: none; /* Hidden by default */
+}
+
+.anchor-ad-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: white;
+    padding: 5px;
+    width: 320px; /* Set to exact ad width */
+    height: 50px; /* Set to exact ad height */
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+/* Adjust list max-height to account for smaller anchor ad */
+.list {
+    max-height: calc(100vh - 420px - 60px); /* 60px accounts for ad height + padding */
+}
+
+@media (max-width: 767px) {
+    .list {
+        max-height: calc(100vh - 400px - 60px); /* Adjusted for mobile */
+    }
+}
+
+</style>
+</head>
+<body>
+    <div class="header-navigation">
+        <nav class="navbar navbar-expand-md navbar-light bg-white">
+            <a class="navbar-brand paperfrenzy1" href="/">PaperFrenzy</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dive-in">
+                        <a id="download-paper" class="nav-link" href="#">Download</a>
+                    </li>
+                    <li class="nav-item dive-in" style="display: none;">
+                        <a id="autocorrect" class="nav-link" href="#">Ask DoubtAi</a>
+                    </li>
+                    <li class="nav-item dive-in dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="openMarkSchemeDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Open Mark scheme
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="openMarkSchemeDropdown">
+                            <a id="open-side-by-side" class="dropdown-item" href="#">Open side by side</a>
+                            <a id="open-new-tab" class="dropdown-item" href="#">Open in new tab</a>
+                        </div>
+                    </li>
+                    
+                </ul>
+            </div>
+        </nav>
+    </div>
+    
+    <div class="autocorrect-box" id="autocorrect-box">
+       
+            <input type="text" class="autocorrect-input" placeholder="Enter your query here..." />
+            <button id="search-button" class="search-button">Ask</button>
+            <div class="autocorrect-message" id="autocorrect-message">BETA version of DoubtAI</div>
+   
+    </div>
+    
+    
+<div class="viewer-container">
+    <div class="loading-message" id="loading-message">Loading...</div>
+    <div class="viewer" id="paper-viewer">
+        <div class="pdf-container" id="paper-pdf-container"></div>
+    </div>
+    <div class="viewer" id="mark-scheme-viewer">
+        <div class="loading-message" id="loading-message">Loading...</div>
+        <div class="pdf-container" id="mark-scheme-pdf-container"></div>
+    </div>
+</div>
+
+
+<script>
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.worker.min.js';
+
+let pdfInitialized = false;
+let markSchemeInitialized = false;
+let lastWindowWidth = window.innerWidth;
+let renderedPages = new Set();
+let markSchemeAvailable = "{{ ms.0.file.url|default:'' }}" !== '';
+
+$(document).ready(function() {
+    $('[data-toggle="dropdown"]').dropdown();
+});
+
+// Prevent double-tap zoom on mobile
+document.addEventListener('touchend', function(event) {
+    if (event.changedTouches.length === 1) {
+        const now = Date.now();
+        const lastTouch = $(event.target).data('lastTouch') || now + 1;
+        const delta = now - lastTouch;
+        if (delta < 500 && delta > 0) {
+            event.preventDefault();
+            return false;
+        }
+        $(event.target).data('lastTouch', now);
+    }
+}, false);
+
+$('#autocorrect').on('click', function(e) {
+    e.preventDefault();
+    $('#autocorrect-box').toggle();
+    const myElement = document.getElementById('autocorrect-box');
+
+    if (myElement) {
+        const style = getComputedStyle(myElement);
+        if (style.display !== 'none' && style.visibility !== 'hidden') {
+            document.getElementById('autocorrect').innerText = 'Close DoubtAI';
+        } else {
+            document.getElementById('autocorrect').innerText = 'Ask DoubtAI';
+        }
+    }
+});
+
+// Improved dropdown handling
+document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+    toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var dropdown = this.closest('.dropdown');
+        document.querySelectorAll('.dropdown').forEach(function(d) {
+            if (d !== dropdown) d.classList.remove('show');
+        });
+        dropdown.classList.toggle('show');
+    });
+});
+
+document.addEventListener('click', function(event) {
+    if (!event.target.closest('.dropdown')) {
+        document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+            dropdown.classList.remove('show');
+        });
+    }
+});
+
+$(document).ready(function() {
+    $('#search-button').on('click', function() {
+        const query = $('.autocorrect-input').val();
+        document.getElementById("autocorrect-message").innerText = "Answering... Reply may take sometime depending on your internet";
+
+        $.ajax({
+            url: '/search/',
+            type: 'POST',
+            data: {
+                'query': query,
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            success: function(response) {
+                $('.autocorrect-message').text(response.message);
+            },
+            error: function(xhr, errmsg, err) {
+                console.log(xhr.status + ": " + xhr.responseText);
+            }
+        });
+    });
+});
+
+function showNoMarkSchemeMessage(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML = `
+        <div style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            font-size: 1.5rem;
+            color: #666;
+            text-align: center;
+        ">
+            No markscheme available
+        </div>
+    `;
+}
+
+function renderPDF(url, containerId, forceRerender = false) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    const loadingMessage = document.getElementById('loading-message');
+    
+    // Check if mark scheme is available
+    if (containerId === 'mark-scheme-pdf-container' && !markSchemeAvailable) {
+        showNoMarkSchemeMessage(containerId);
+        return;
+    }
+
+    // Reset rendered pages tracking on new render
+    renderedPages.clear();
+    
+    // Check if PDF is already rendered and no force rerender is requested
+    if ((containerId === 'paper-pdf-container' && pdfInitialized && !forceRerender) ||
+        (containerId === 'mark-scheme-pdf-container' && markSchemeInitialized && !forceRerender)) {
+        return;
+    }
+
+    container.innerHTML = '';
+    if (loadingMessage) loadingMessage.style.display = 'block';
+
+    pdfjsLib.getDocument(url).promise.then(function(pdf) {
+        if (loadingMessage) loadingMessage.style.display = 'none';
+        
+        // Set initialization flags
+        if (containerId === 'paper-pdf-container') {
+            pdfInitialized = true;
+        } else if (containerId === 'mark-scheme-pdf-container') {
+            markSchemeInitialized = true;
+        }
+
+        const renderPage = async function(pageNum) {
+            // Check if page is already rendered
+            if (renderedPages.has(pageNum)) return;
+            
+            try {
+                const page = await pdf.getPage(pageNum);
+                const viewport = page.getViewport({scale: 1});
+                const containerWidth = container.clientWidth;
+                const scale = containerWidth / viewport.width;
+                const scaledViewport = page.getViewport({scale: scale});
+
+                const wrapper = document.createElement('div');
+                wrapper.className = 'pdf-page-wrapper';
+                wrapper.setAttribute('data-page-number', pageNum);
+                wrapper.style.width = `${scaledViewport.width}px`;
+                wrapper.style.height = `${scaledViewport.height}px`;
+
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                canvas.height = scaledViewport.height;
+                canvas.width = scaledViewport.width;
+
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: scaledViewport
+                };
+
+                await page.render(renderContext).promise;
+
+                wrapper.appendChild(canvas);
+                
+                // Insert page in correct order
+                let inserted = false;
+                const existingPages = container.querySelectorAll('.pdf-page-wrapper');
+                for (let existing of existingPages) {
+                    const existingNum = parseInt(existing.getAttribute('data-page-number'));
+                    if (existingNum > pageNum) {
+                        container.insertBefore(wrapper, existing);
+                        inserted = true;
+                        break;
+                    }
+                }
+                if (!inserted) {
+                    container.appendChild(wrapper);
+                }
+
+                renderedPages.add(pageNum);
+            } catch (error) {
+                console.error(`Error rendering page ${pageNum}:`, error);
+            }
+        };
+
+        // Render pages sequentially
+        const renderPages = async () => {
+            for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                await renderPage(pageNum);
+            }
+        };
+
+        renderPages();
+    }).catch(function(error) {
+        console.error('Error loading PDF:', error);
+        if (loadingMessage) loadingMessage.style.display = 'none';
+        
+        // Show "No markscheme available" message if PDF fails to load and it's the mark scheme container
+        if (containerId === 'mark-scheme-pdf-container') {
+            showNoMarkSchemeMessage(containerId);
+        }
+    });
+}
+
+function updateMarkSchemeDropdown(isOpen) {
+    const dropdownToggle = document.getElementById('openMarkSchemeDropdown');
+    const sideBySideOption = document.getElementById('open-side-by-side');
+    
+    if (!dropdownToggle || !sideBySideOption) return;
+
+    // Check if markscheme is available
+    if (!markSchemeAvailable) {
+        dropdownToggle.textContent = 'No Markscheme Available';
+        dropdownToggle.style.color = '#6c757d';
+        dropdownToggle.style.cursor = 'not-allowed';
+        sideBySideOption.style.color = '#6c757d';
+        sideBySideOption.style.cursor = 'not-allowed';
+        return;
+    }
+
+    // Reset styling for available markscheme
+    dropdownToggle.style.color = '';
+    dropdownToggle.style.cursor = '';
+    sideBySideOption.style.color = '';
+    sideBySideOption.style.cursor = '';
+
+    if (isOpen) {
+        dropdownToggle.textContent = 'Close Mark scheme';
+        sideBySideOption.textContent = 'Close side by side';
+    } else {
+        dropdownToggle.textContent = 'Open Mark scheme';
+        sideBySideOption.textContent = 'Open side by side';
+    }
+}
+
+// Debounced resize handler
+function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+}
+
+const handleResize = debounce(function() {
+    const currentWidth = window.innerWidth;
+    // Only re-render if width changed significantly (handles iOS safari address bar show/hide)
+    if (Math.abs(currentWidth - lastWindowWidth) > 50) {
+        lastWindowWidth = currentWidth;
+        
+        // Force rerender only if significant width change
+        renderPDF("{{ papers.0.file.url }}", 'paper-pdf-container', true);
+        if (document.getElementById('mark-scheme-viewer').style.display !== 'none') {
+            renderPDF("{{ ms.0.file.url }}", 'mark-scheme-pdf-container', true);
+        }
+    }
+}, 250);
+
+window.addEventListener('resize', handleResize);
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Initial PDF render
+    renderPDF("{{ papers.0.file.url }}", 'paper-pdf-container');
+
+    // Setup mark scheme buttons
+    const openSideBySideButton = document.getElementById('open-side-by-side');
+    const openNewTabButton = document.getElementById('open-new-tab');
+
+    if (openSideBySideButton) {
+        openSideBySideButton.addEventListener('click', function() {
+            if (!markSchemeAvailable) {
+                return; // Do nothing if no markscheme available
+            }
+
+            if (window.innerWidth <= 768) {
+                alert("Your screen size is too small to open the marking scheme side by side. Please use the 'Open in new tab' option instead.");
+                return;
+            }
+
+            const paperViewer = document.getElementById('paper-viewer');
+            const markSchemeViewer = document.getElementById('mark-scheme-viewer');
+
+            if (!paperViewer || !markSchemeViewer) return;
+
+            if (markSchemeViewer.style.display === 'none' || markSchemeViewer.style.display === '') {
+                markSchemeViewer.style.display = 'block';
+                paperViewer.classList.add('shift-left');
+                renderPDF("{{ ms.0.file.url }}", 'mark-scheme-pdf-container');
+                updateMarkSchemeDropdown(true);
+            } else {
+                markSchemeViewer.style.display = 'none';
+                paperViewer.classList.remove('shift-left');
+                updateMarkSchemeDropdown(false);
+            }
+        });
+    }
+
+    if (openNewTabButton) {
+        openNewTabButton.addEventListener('click', function() {
+            if (!markSchemeAvailable) {
+                return; // Do nothing if no markscheme available
+            }
+
+            window.open('/openms12/', '_blank');
+
+            $.ajax({
+                url: '/openms12/',
+                type: 'POST',
+                data: {
+                    'subjectname': '{{ papers.0.subject }}',
+                    'subjectset': '{{ papers.0.sets }}',
+                    'subjectyear': '{{ papers.0.year }}',
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function(response) {
+                    console.log('Ajax request successful');
+                },
+                error: function(xhr, errmsg, err) {
+                    console.log('Ajax request failed');
+                    console.log(xhr.status + ": " + xhr.responseText);
+                }
+            });
+        });
+    }
+
+    // Setup download button
+    document.getElementById('download-paper')?.addEventListener('click', async function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        const originalText = this.textContent;
+        this.textContent = 'Downloading...';
+        this.disabled = true;
+
+        async function downloadPDF(url, filename) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Download failed');
+                
+                const blob = await response.blob();
+                const blobUrl = window.URL.createObjectURL(blob);
+                
+                // Force download using iframe to prevent navigation
+                const iframe = document.createElement('iframe');
+                iframe.style.display = 'none';
+                document.body.appendChild(iframe);
+                
+                iframe.contentWindow.document.open();
+                iframe.contentWindow.document.write(
+                    `<a id="download" download="${filename}" href="${blobUrl}"></a>`
+                );
+                iframe.contentWindow.document.close();
+                
+                const downloadLink = iframe.contentWindow.document.getElementById('download');
+                downloadLink.click();
+                
+                // Cleanup
+                setTimeout(() => {
+                    document.body.removeChild(iframe);
+                    window.URL.revokeObjectURL(blobUrl);
+                }, 1000);
+                
+                return true;
+            } catch (error) {
+                console.error('Download error:', error);
+                return false;
+            }
+        }
+
+        try {
+            // Download question paper
+            const paperSuccess = await downloadPDF(
+                "{{ papers.0.file.url }}", 
+                '{{ papers.0.subject }}_Question_Paper.pdf'
+            );
+
+            // Only download mark scheme if available and paper download was successful
+            if (paperSuccess && markSchemeAvailable) {
+                setTimeout(async () => {
+                    await downloadPDF(
+                        "{{ ms.0.file.url }}", 
+                        '{{ ms.0.subject }}_MarkScheme.pdf'
+                    );
+                }, 1000);
+            }
+        } catch (error) {
+            alert('Download failed. Please try again.');
+        } finally {
+            // Reset button state
+            this.textContent = originalText;
+            this.disabled = false;
+        }
+    });
+
+    // Initialize mark scheme dropdown state
+    updateMarkSchemeDropdown(false);
+
+    // Prevent iOS double-tap zoom
+    document.addEventListener('touchend', function(event) {
+        const now = Date.now();
+        const lastTap = $(event.target).data('lastTap') || now + 1;
+        const delta = now - lastTap;
+        if (delta < 500 && delta > 0) {
+            event.preventDefault();
+        }
+        $(event.target).data('lastTap', now);
+    });
+
+    // Add touch event handling for mobile navigation
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        let touchStartY = 0;
+        navbar.addEventListener('touchstart', function(e) {
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        navbar.addEventListener('touchmove', function(e) {
+            const touchY = e.touches[0].clientY;
+            const diff = touchStartY - touchY;
+
+            // Only hide/show navbar on significant vertical scroll
+            if (Math.abs(diff) > 50) {
+                navbar.style.transform = diff > 0 ? 'translateY(-100%)' : 'translateY(0)';
+            }
+        }, { passive: true });
+    }
+});
+    </script>
+</body>
+
+
+</html>

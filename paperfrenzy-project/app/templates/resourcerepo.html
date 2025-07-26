@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: sans-serif;
+      background-color: #f7f7f7;
+    }
+    .message {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="message">
+    <h1>Please wait...</h1>
+    <p>You are being redirected to https://discord.gg/KYpJpQyRcq </p>
+  </div>
+
+  <script>
+    // Wait until everything is loaded, then redirect
+    window.onload = function() {
+      setTimeout(function() {
+        window.location.href = "https://discord.gg/KYpJpQyRcq"; // change to your target URL
+      }, 1000); // Optional delay in ms (e.g., 1000ms = 1 second)
+    };
+  </script>
+</body>
+</html>
