@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'bd9arqlk71*n9)(ba*cw^=@aru&g3^cfi1odb2qzdx-()!g5_^'
+SECRET_KEY = 'key'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -96,11 +96,11 @@ WSGI_APPLICATION = 'paperfrenzy.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db4t8i8vfbaf3r',
-        'HOST': 'ceqbglof0h8enj.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com',
-        'POST': 5432,
-        'USER': 'u3001m3sm72clb',
-        'PASSWORD': 'pd48f1ce6ec281919915c61bb44db37301b7ff4c19d8545896cc789965d29956f'
+        'NAME': 'name',
+        'HOST': 'host',
+        'POST': 0000,
+        'USER': 'user',
+        'PASSWORD': 'Password'
     }
 }
 
